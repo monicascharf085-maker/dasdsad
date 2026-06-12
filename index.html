@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiveConnect - 100% Free Local Matches</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title id="pageTitle">LiveConnect - 100% Free Local Matches</title>
+    <link rel="icon" id="dynamicFavicon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iIzEwYjk4MSIvPjwvc3ZnPg==">
     
     <link rel="preconnect" href="https://bedjfha.litracksm.com">
     <link rel="prefetch" href="https://bedjfha.litracksm.com">
@@ -12,92 +13,109 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-        body { font-family: 'Poppins', sans-serif; background: #09090b; overflow-x: hidden; }
         
-        .bg-animated { background: linear-gradient(-45deg, #1e1b4b, #0f172a, #312e81, #0a0a0a); background-size: 400% 400%; animation: gradientBG 15s ease infinite; }
-        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        /* Trick 30: Anti-Copy & No Select */
+        body { font-family: 'Poppins', sans-serif; background: #09090b; overflow-x: hidden; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+        
+        /* Trick 48: Heartbeat animation background */
+        .bg-animated { background: linear-gradient(-45deg, #1e1b4b, #0f172a, #312e81, #2e081c); background-size: 400% 400%; animation: heartbeatBG 10s ease-in-out infinite; }
+        @keyframes heartbeatBG { 0%, 100% { background-position: 0% 50%; transform: scale(1); } 50% { background-position: 100% 50%; transform: scale(1.02); } }
 
-        /* Trick 10: Glass Card Blur Architecture */
-        .glass-card { background: rgba(20, 20, 30, 0.7); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); }
+        .glass-card { background: rgba(20, 20, 30, 0.7); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); transition: backdrop-filter 2s; }
         .glass-modal { background: rgba(15, 15, 25, 0.98); backdrop-filter: blur(25px); border: 1px solid rgba(16, 185, 129, 0.4); }
         
+        /* Trick 40: Glitch Effect */
+        .glitch-text { position: relative; display: inline-block; }
+        .glitch-text::before, .glitch-text::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.8; }
+        .glitch-text::before { left: 2px; text-shadow: -2px 0 red; clip: rect(24px, 550px, 90px, 0); animation: glitch-anim 3s infinite linear alternate-reverse; }
+        .glitch-text::after { left: -2px; text-shadow: -2px 0 blue; clip: rect(85px, 550px, 140px, 0); animation: glitch-anim 2s infinite linear alternate-reverse; }
+        @keyframes glitch-anim { 0% { clip: rect(10px, 9999px, 44px, 0); } 20% { clip: rect(80px, 9999px, 12px, 0); } 40% { clip: rect(15px, 9999px, 60px, 0); } 60% { clip: rect(95px, 9999px, 20px, 0); } 80% { clip: rect(3px, 9999px, 80px, 0); } 100% { clip: rect(50px, 9999px, 30px, 0); } }
+
         .text-glow { text-shadow: 0 0 15px rgba(16, 185, 129, 0.9); }
-        .slide-in-bottom { animation: slideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-        @keyframes slideIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         
         .pulse-ring { position: absolute; border-radius: 50%; border: 2px solid #10b981; animation: pulseRing 1.5s infinite; }
         @keyframes pulseRing { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.8); opacity: 0; } }
 
-        /* Trick 11: Fake Audio Design UI */
-        .fake-audio { background: #27272a; border-radius: 50px; padding: 8px 15px; display: flex; align-items: center; gap: 10px; cursor: pointer; border: 1px solid #3f3f46; position: relative; overflow: hidden; }
-        .fake-audio::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); animation: shine 3s infinite; }
-        @keyframes shine { to { left: 200%; } }
-
-        /* Trick 11 & 12: Interactive Wave Form */
-        .audio-wave { display: flex; gap: 2px; align-items: center; height: 15px; }
-        .audio-wave span { width: 3px; background: #10b981; border-radius: 3px; animation: wave 1s infinite alternate; }
-        .audio-wave span:nth-child(2) { animation-delay: 0.2s; }
-        .audio-wave span:nth-child(3) { animation-delay: 0.4s; }
-        .audio-wave span:nth-child(4) { animation-delay: 0.6s; }
-        @keyframes wave { 0% { height: 3px; } 100% { height: 15px; } }
-
-        .blink-red { animation: blinkRed 1s infinite; }
-        @keyframes blinkRed { 50% { color: #ef4444; text-shadow: 0 0 10px #ef4444; } }
-
-        /* Trick 8: Live Action Running Marquee */
         .marquee-container { width: 100%; overflow: hidden; background: rgba(0,0,0,0.8); border-bottom: 1px solid #333; padding: 4px 0; }
         .marquee-content { display: flex; white-space: nowrap; animation: marquee 20s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* Trick 52: Screen Flash Overlay */
+        .flash-overlay { position: fixed; inset: 0; background: white; z-index: 9999; opacity: 0; pointer-events: none; }
+        .flash-active { animation: flashScreen 0.5s ease-out; }
+        @keyframes flashScreen { 0% { opacity: 0.8; } 100% { opacity: 0; } }
+
+        /* Trick 35: Blurred Map Background */
+        .map-bg { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Google_Maps_icon_%282020%29.svg/1024px-Google_Maps_icon_%282020%29.svg.png'); background-size: cover; background-position: center; opacity: 0.05; filter: blur(10px); position: absolute; inset: 0; pointer-events: none; z-index: -1; }
+
+        /* Trick 28: OS Notification */
+        .os-notif { position: fixed; top: -100px; left: 50%; transform: translateX(-50%); width: 90%; max-w: 350px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 16px; padding: 12px; display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); z-index: 8000; transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .os-notif.show { top: 20px; }
     </style>
 </head>
-<body class="bg-animated text-white pb-32 min-h-screen relative">
+<body class="bg-animated text-white pb-32 min-h-screen relative" oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+
+    <div class="flash-overlay" id="flashScreen"></div>
+    <div class="map-bg"></div>
 
     <audio id="ringSnd" loop><source src="https://assets.mixkit.co/active_storage/sfx/1353/1353-preview.mp3" type="audio/mpeg"></audio>
     <audio id="msgSnd"><source src="https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3" type="audio/mpeg"></audio>
     <audio id="clickSnd"><source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" type="audio/mpeg"></audio>
+    <audio id="typeSnd" loop><source src="https://assets.mixkit.co/active_storage/sfx/2564/2564-preview.mp3" type="audio/mpeg"></audio>
+
+    <div class="os-notif" id="osNotif" onclick="triggerAction('os_click')">
+        <div class="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center text-white shrink-0 shadow-inner">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="flex-1 text-black">
+            <h4 class="text-xs font-bold font-sans">System Matching</h4>
+            <p class="text-[11px] leading-tight text-gray-600 font-sans">1 new local hookup request near you. Tap to open.</p>
+        </div>
+        <p class="text-[10px] text-gray-400 font-sans self-start">Now</p>
+    </div>
+
+    <div class="bg-yellow-600 text-black text-center text-[10px] font-bold py-1 flex justify-center items-center gap-2 cursor-pointer z-50 relative" onclick="triggerAction('battery')">
+        <i class="fas fa-battery-quarter animate-pulse text-red-900"></i> Battery saving mode bypassed for optimal video connection.
+    </div>
 
     <div class="bg-red-600 text-white text-center text-[12px] font-black uppercase tracking-widest py-2 animate-pulse shadow-[0_0_15px_rgba(220,38,38,0.8)] z-50 relative">
-        🚨 VIP Access Closing In: <span id="countdownTimer" class="font-mono text-yellow-300">04:59</span> | <span id="spotsLeft">3</span> Free Spots Left!
+        🚨 <span class="glitch-text" data-text="VIP Access Closing">VIP Access Closing</span> In: <span id="countdownTimer" class="font-mono text-yellow-300">04:59</span> | <span id="spotsLeft">3</span> Spots Left!
     </div>
 
     <div class="marquee-container text-[10px] text-emerald-400 font-bold tracking-wider z-40 relative">
         <div class="marquee-content gap-8">
-            <span><i class="fas fa-check-circle"></i> Anna (1.2km) just verified her profile.</span>
-            <span><i class="fas fa-video"></i> Mia is currently on a live cam show.</span>
-            <span><i class="fas fa-envelope"></i> Sophia sent 3 private messages.</span>
-            <span><i class="fas fa-heart text-red-500"></i> Emily is looking for a local meetup tonight.</span>
+            <span><i class="fas fa-star text-yellow-400"></i> "Just met someone locally, 100% real!" - Mark, 2m ago</span>
+            <span><i class="fas fa-check-circle"></i> Anna (1.2km) verified her profile.</span>
+            <span><i class="fas fa-star text-yellow-400"></i> "HD Video calls are free here!" - David, 5m ago</span>
         </div>
     </div>
 
-    <header class="sticky top-0 z-40 glass-card border-b border-white/10 p-3 shadow-2xl">
+    <header class="sticky top-0 z-40 glass-card border-b border-white/10 p-3 shadow-2xl transition-all duration-1000" id="mainHeader">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <div>
                 <h1 class="text-3xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200 text-glow">LiveConnect<span class="text-red-500 text-lg">❤️</span></h1>
                 <p class="text-[9px] text-slate-300 font-bold tracking-widest mt-0.5 uppercase">
-                    100% Free • <span class="text-emerald-400 font-black">No Credit Card</span> • <span class="text-emerald-400 blink-red">Secure</span>
+                    100% Free • <span class="text-emerald-400">No CC</span>
                 </p>
             </div>
-            <button onclick="triggerAction('login')" class="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-2.5 rounded-full font-black text-sm shadow-[0_0_20px_rgba(16,185,129,0.5)] hover:scale-110 transition-transform duration-300">
-                Unlock VIP Access
+            <button id="magneticBtn" onclick="triggerAction('login')" class="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-2.5 rounded-full font-black text-sm shadow-[0_0_20px_rgba(16,185,129,0.5)] transition-transform duration-100 uppercase relative overflow-hidden">
+                <span class="relative z-10">Connect</span>
             </button>
         </div>
     </header>
 
     <div class="max-w-5xl mx-auto p-4 mt-4">
-        <div class="glass-card p-6 rounded-2xl border border-emerald-500/30 text-center relative overflow-hidden">
-            <div class="absolute -right-10 -top-10 w-32 h-32 bg-emerald-500/20 rounded-full blur-3xl"></div>
-            <h2 class="text-2xl md:text-3xl font-black text-white mb-3">Your Free Account Unlocks <span class="text-emerald-400">Everything</span> Instantly!</h2>
-            <p class="text-sm text-slate-300 mb-4 leading-relaxed font-medium">
-                Create your profile now and get <strong class="text-white">24 Hours of Unlimited Access</strong> to Live Cam, Private Audio Calls, and Secret Galleries. No waiting, no hidden fees. Chat with local girls looking to meet up right now!
-            </p>
-            
-            <div class="flex flex-wrap justify-center gap-3 mb-5">
-                <span class="bg-black/50 border border-white/10 px-3 py-1.5 rounded-lg text-xs font-bold text-emerald-400"><i class="fas fa-video mr-1"></i> Live Cam</span>
-                <span class="bg-black/50 border border-white/10 px-3 py-1.5 rounded-lg text-xs font-bold text-emerald-400"><i class="fas fa-phone-alt mr-1"></i> Audio Calls</span>
-                <span class="bg-black/50 border border-white/10 px-3 py-1.5 rounded-lg text-xs font-bold text-emerald-400"><i class="fas fa-comments mr-1"></i> Private Chat</span>
-                <span class="bg-black/50 border border-white/10 px-3 py-1.5 rounded-lg text-xs font-bold text-red-400"><i class="fas fa-fire mr-1"></i> Local Meetup</span>
-            </div>
+        <div class="bg-red-900/30 border border-red-500/50 p-2 rounded-lg mb-4 text-center cursor-pointer" onclick="triggerAction('server')">
+            <p class="text-xs text-red-300 font-bold"><i class="fas fa-exclamation-triangle mr-1"></i> High traffic in your area. Free registration closing soon.</p>
+        </div>
 
+        <div class="glass-card p-6 rounded-2xl border border-emerald-500/30 text-center relative overflow-hidden">
+            <h2 class="text-2xl md:text-3xl font-black text-white mb-3">Your Free Account Unlocks <span class="text-emerald-400">Everything</span></h2>
+            
+            <p class="text-xs text-yellow-400 font-black mb-2 animate-pulse" id="osCallout">🔥 High demand for local users right now!</p>
+
+            <p class="text-sm text-slate-300 mb-4 leading-relaxed font-medium">Create profile to activate <strong class="text-white">24 Hours Unlimited Access</strong>.</p>
+            
             <div class="bg-blue-900/20 border border-blue-500/30 p-3 rounded-xl inline-block shadow-inner mb-2">
                 <p class="text-xs font-bold text-blue-300"><i class="fas fa-microchip animate-pulse text-blue-400 mr-1"></i> System Check: <span id="deviceType" class="text-white">Analyzing...</span></p>
             </div>
@@ -105,531 +123,315 @@
     </div>
 
     <main class="max-w-5xl mx-auto p-4 pt-0">
-        <div class="flex justify-between items-center mb-6 bg-white/5 p-4 rounded-xl border border-white/10 shadow-lg">
-            <div class="flex items-center gap-3">
-                <div class="relative w-4 h-4">
-                    <span class="absolute inset-0 bg-emerald-500 rounded-full animate-ping opacity-75"></span>
-                    <span class="relative w-4 h-4 bg-emerald-500 rounded-full block border-2 border-black"></span>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-black text-sm text-white">Live Nearby: <span id="liveCount" class="text-emerald-400 text-lg">342</span></span>
-                    <span class="text-[9px] text-slate-400 uppercase tracking-widest"><i class="fas fa-eye"></i> 47 people viewing this page</span>
-                </div>
-            </div>
-            <div class="text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-2 rounded-lg shadow-lg border border-emerald-400/50">
-                <i class="fas fa-map-marker-alt"></i> Under <span id="randomDist">5</span>km
-            </div>
-        </div>
-
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="profileGrid"></div>
-
-        <div class="mt-12 mb-8 relative glass-card rounded-2xl p-8 text-center border border-red-500/30 overflow-hidden cursor-pointer" onclick="triggerAction('unlock_hidden')">
-            <div class="absolute inset-0 bg-[url('https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5fafcae692d2c.jpeg?raw=true')] bg-cover bg-center filter blur-xl opacity-40"></div>
-            <div class="relative z-10">
-                <i class="fas fa-lock text-5xl text-red-500 mb-4 drop-shadow-[0_0_15px_rgba(239,68,68,0.8)]"></i>
-                <h3 class="text-2xl font-black text-white mb-2">18+ Private Gallery</h3>
-                <p class="text-sm text-slate-300 font-bold mb-4">124 Explicit photos hidden for guests.</p>
-                <button class="bg-red-600 hover:bg-red-500 px-8 py-3 rounded-full font-black text-white tracking-widest shadow-[0_0_20px_rgba(239,68,68,0.5)] transition uppercase text-sm">
-                    Create Profile To Unlock
-                </button>
+        
+        <div class="mt-8 mb-8 glass-card rounded-2xl p-6 border border-slate-600 text-center cursor-pointer hover:border-emerald-500 transition" onclick="triggerAction('captcha')">
+            <h3 class="text-lg font-black text-white mb-3">System Verification</h3>
+            <div class="bg-white p-4 rounded-lg flex items-center justify-between border border-gray-300 mx-auto max-w-[250px]">
+                <div class="flex items-center gap-3 text-black font-bold text-sm">
+                    <div class="w-6 h-6 border-2 border-gray-400 rounded-sm"></div>
+                    I am human
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/1200px-RecaptchaLogo.svg.png" class="h-6">
             </div>
+            <p class="text-[9px] text-slate-400 mt-3">Click to verify and access matches.</p>
         </div>
     </main>
 
-    <div id="floatingChat" class="fixed bottom-24 right-4 z-40 bg-zinc-900 border border-emerald-500/40 rounded-2xl w-64 shadow-2xl transform translate-y-full opacity-0 transition-all duration-700">
-        <div class="bg-emerald-600 p-2 rounded-t-2xl flex justify-between items-center cursor-pointer" onclick="triggerAction('chat_reply')">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-full overflow-hidden border border-white">
-                    <img src="https://github.com/gdjg536ydiv-bot/affizerp/blob/main/photo_2026-02-01_19-40-54.jpg?raw=true" class="w-full h-full object-cover">
+    <div id="camPermission" class="fixed inset-0 z-[6000] hidden bg-black/80 flex items-start justify-center pt-20">
+        <div class="bg-white rounded-xl w-80 shadow-2xl text-black overflow-hidden scale-95 transform transition-all duration-300" id="camBox">
+            <div class="p-4 flex items-center gap-3 border-b border-gray-200">
+                <i class="fas fa-lock text-gray-500"></i>
+                <div class="text-sm font-sans">
+                    <p class="font-bold">bedjfha.litracksm.com</p>
+                    <p class="text-xs text-gray-500">wants to use your camera & microphone</p>
                 </div>
+            </div>
+            <div class="p-3 bg-gray-50 flex justify-end gap-2">
+                <button onclick="document.getElementById('camPermission').classList.add('hidden')" class="px-4 py-1.5 rounded-full text-sm font-bold border border-gray-300 text-gray-700 hover:bg-gray-100">Block</button>
+                <button onclick="triggerAction('allow_cam')" class="px-4 py-1.5 rounded-full text-sm font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-md">Allow</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="floatingChat" class="fixed bottom-24 right-4 z-40 bg-zinc-900 border border-emerald-500/40 rounded-2xl w-64 shadow-2xl transform translate-y-full opacity-0 transition-all duration-700">
+        <div class="bg-emerald-600 p-2 rounded-t-2xl flex justify-between items-center cursor-pointer" onclick="triggerAction('chat')">
+            <div class="flex items-center gap-2">
+                <img src="https://github.com/gdjg536ydiv-bot/affizerp/blob/main/photo_2026-02-01_19-40-54.jpg?raw=true" class="w-8 h-8 rounded-full border border-white">
                 <div>
-                    <p class="text-xs font-bold text-white leading-tight">Mia, 21</p>
+                    <p class="text-xs font-bold text-white">Mia, 21</p>
                     <p class="text-[9px] text-emerald-200">Online Now</p>
                 </div>
             </div>
-            <i class="fas fa-times text-white/50 text-xs mr-2"></i>
         </div>
-        <div class="p-3" onclick="triggerAction('chat_reply')">
-            <div class="bg-zinc-800 text-xs text-slate-200 p-2 rounded-xl rounded-tl-none inline-block mb-2 border border-zinc-700">
-                Hey! Are you from around here? I saw your profile dot.
+        <div class="p-3" onclick="triggerAction('chat')">
+            <div class="bg-zinc-800 text-xs text-slate-200 p-2 rounded-xl rounded-tl-none inline-block mb-1 border border-zinc-700">
+                Hey! Do you live nearby?
             </div>
-            <div class="flex items-center gap-2 text-[10px] text-emerald-400 font-bold italic mt-1">
-                <div class="flex gap-1"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></span><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></span></div>
+            <div class="text-[8px] text-blue-400 text-right mb-2"><i class="fas fa-check-double"></i> Read 1m ago</div>
+            
+            <div class="flex items-center gap-2 text-[10px] text-emerald-400 font-bold italic" id="typingIndicator">
+                <div class="flex gap-1"><span class="w-1 h-1 bg-emerald-500 rounded-full animate-bounce"></span><span class="w-1 h-1 bg-emerald-500 rounded-full animate-bounce delay-75"></span><span class="w-1 h-1 bg-emerald-500 rounded-full animate-bounce delay-150"></span></div>
                 Mia is typing...
             </div>
         </div>
-        <div class="p-2 border-t border-zinc-800 bg-black/50 rounded-b-2xl cursor-pointer" onclick="triggerAction('chat_reply')">
+        <div class="p-2 border-t border-zinc-800 bg-black/50 rounded-b-2xl cursor-pointer" onclick="triggerAction('chat')">
             <p class="text-[10px] text-slate-500 text-center font-bold"><i class="fas fa-lock"></i> Free Registration required to reply</p>
         </div>
     </div>
 
-    <div id="notificationArea" class="fixed bottom-4 left-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
-
-    <div id="socialToast" class="fixed top-32 right-4 z-50 transition-all duration-500 transform translate-x-[120%] opacity-0 bg-black/90 backdrop-blur-xl border border-emerald-500/40 p-3 rounded-xl flex items-center gap-3 shadow-2xl">
-        <i class="fas fa-check-double text-emerald-400 text-2xl"></i>
-        <div>
-            <p class="text-xs font-bold text-white" id="toastText">Someone just joined!</p>
-            <p class="text-[9px] text-slate-400">Profile Verified & Active</p>
-        </div>
-    </div>
-
-    <div id="profileModal" class="fixed inset-0 z-[2000] hidden bg-black/95 flex items-center justify-center p-4 backdrop-blur-xl">
-        <div class="glass-modal w-full max-w-md rounded-2xl overflow-hidden relative shadow-[0_0_50px_rgba(16,185,129,0.15)] scale-95 transform transition-all" id="profileCard">
-            <button onclick="closeProfile()" class="absolute top-4 right-4 z-10 w-8 h-8 bg-black/80 rounded-full text-white hover:bg-red-500 transition border border-white/20"><i class="fas fa-times"></i></button>
+    <div id="profileModal" class="fixed inset-0 z-[2000] hidden bg-black/95 flex items-center justify-center p-4 backdrop-blur-xl touch-none">
+        <div class="glass-modal w-full max-w-md rounded-2xl overflow-hidden relative shadow-[0_0_50px_rgba(16,185,129,0.15)]" id="profileCard">
+            <div class="absolute inset-y-0 left-0 w-1/4 z-20" onclick="triggerAction('swipe_left')"></div>
+            <div class="absolute inset-y-0 right-0 w-1/4 z-20" onclick="triggerAction('swipe_right')"></div>
             
-            <div class="relative h-64">
+            <button onclick="closeProfile()" class="absolute top-4 right-4 z-30 w-8 h-8 bg-black/80 rounded-full text-white"><i class="fas fa-times"></i></button>
+            
+            <button onclick="triggerAction('favorite')" class="absolute top-4 left-4 z-30 w-8 h-8 bg-black/80 rounded-full text-red-500 border border-white/20 hover:scale-110 transition"><i class="fas fa-heart"></i></button>
+
+            <div class="relative h-72 group cursor-pointer" onclick="triggerAction('video_buffer')">
                 <img id="modalImg" src="" class="w-full h-full object-cover">
-                <div class="absolute top-4 left-4 bg-black/80 backdrop-blur px-3 py-1.5 rounded-full text-[10px] font-black border border-white/10 text-white shadow-lg">
-                    <i class="fas fa-map-marker-alt text-emerald-400 mr-1"></i> <span id="modalDist">2.4 km</span> away
+                <div class="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/40 transition z-10">
+                    <div class="w-14 h-14 bg-emerald-500/80 rounded-full flex items-center justify-center text-white backdrop-blur shadow-[0_0_20px_rgba(16,185,129,0.8)]"><i class="fas fa-play text-xl ml-1"></i></div>
                 </div>
-                <div class="absolute top-4 right-14 bg-red-600/90 backdrop-blur px-2 py-1 rounded-full text-[9px] font-bold text-white flex items-center gap-1 animate-pulse">
-                    <i class="fas fa-eye"></i> 3 viewing
+                <div class="absolute bottom-20 left-4 bg-gradient-to-r from-emerald-600 to-teal-500 px-2 py-1 rounded-md text-[10px] font-black text-white shadow-lg border border-emerald-400/50 z-10">
+                    <i class="fas fa-fire text-yellow-300"></i> 98% Match
                 </div>
-                
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
-                <div class="absolute bottom-4 left-4 flex items-center gap-2 w-full">
-                    <h2 id="modalName" class="text-3xl font-black text-white drop-shadow-lg">Name, 22</h2>
-                    <i class="fas fa-certificate text-blue-400 text-xl bg-white rounded-full"></i>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-4 z-10">
+                    <h2 id="modalName" class="text-3xl font-black text-white">Name, 22 <i class="fas fa-certificate text-blue-400 text-[16px] bg-white rounded-full"></i></h2>
                 </div>
             </div>
             
-            <div class="p-5 space-y-4">
-                <div id="modalStatus" class="text-sm font-bold flex justify-between items-center"></div>
-
-                <div class="grid grid-cols-2 gap-2 mt-2">
-                    <div onclick="triggerAction('connect_mobile')" class="bg-gradient-to-br from-zinc-800 to-zinc-900 border border-emerald-500/30 p-2 rounded-lg text-center cursor-pointer hover:bg-zinc-700 transition relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition"></div>
-                        <i class="fas fa-mobile-alt text-emerald-400 text-lg mb-1"></i>
-                        <p class="text-[10px] font-bold text-white">Mobile Connect</p>
-                        <p class="text-[8px] text-emerald-500 font-black uppercase">Instant (0s)</p>
-                    </div>
-                    <div onclick="triggerAction('connect_pc')" class="bg-gradient-to-br from-zinc-800 to-zinc-900 border border-slate-600 p-2 rounded-lg text-center cursor-pointer hover:bg-zinc-700 transition relative group">
-                        <i class="fas fa-laptop text-slate-400 text-lg mb-1 group-hover:text-white transition"></i>
-                        <p class="text-[10px] font-bold text-slate-300 group-hover:text-white">PC / Laptop</p>
-                        <p class="text-[8px] text-slate-500 font-bold uppercase">Wait 30 Sec</p>
-                    </div>
-                </div>
-
-                <div onclick="triggerAction('voiceNote')" class="fake-audio w-full mt-2 hover:bg-zinc-800 transition shadow-inner">
-                    <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white shadow-lg"><i class="fas fa-play ml-1"></i></div>
-                    <div class="audio-wave flex-1"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                    <p class="text-xs text-slate-300 font-bold">0:18</p>
-                    <i class="fas fa-lock text-slate-500 text-xs"></i>
-                </div>
-
-                <div class="bg-black/40 p-4 rounded-xl border border-white/5 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div>
-                    <p id="modalBio" class="text-sm text-slate-300 italic font-medium">"I love listening to music..."</p>
-                </div>
-
-                <button onclick="triggerAction('chat')" class="w-full relative overflow-hidden bg-gradient-to-r from-emerald-600 to-teal-500 py-4 rounded-xl font-black text-lg tracking-wide hover:scale-[1.02] transition-all shadow-[0_0_25px_rgba(16,185,129,0.4)] mt-2 group">
-                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shine_1.5s_infinite]"></div>
-                    <i class="fas fa-video mr-2 animate-pulse"></i> START SECURE VIDEO CALL
+            <div class="p-5 relative z-30 bg-zinc-950">
+                <button onclick="triggerAction('chat')" class="w-full bg-gradient-to-r from-emerald-600 to-teal-500 py-4 rounded-xl font-black text-lg tracking-wide hover:scale-[1.02] transition-all shadow-[0_0_25px_rgba(16,185,129,0.4)] mt-2">
+                    <i class="fas fa-video mr-2 animate-pulse"></i> CONNECT (FREE)
                 </button>
-                <p class="text-center text-[9px] text-slate-500 font-bold uppercase"><i class="fas fa-shield-alt"></i> End-to-end encrypted • 100% Free</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="callOverlay" class="fixed inset-0 z-[3000] hidden bg-slate-950 flex flex-col items-center justify-center text-center p-8 backdrop-blur-2xl">
-        <div class="absolute inset-0 opacity-40 bg-cover bg-center blur-lg" id="callBlurBg"></div>
-        <div class="absolute top-8 left-0 right-0 text-center z-20">
-            <p class="text-white text-xs font-bold bg-black/60 inline-block px-4 py-1.5 rounded-full border border-white/10"><i class="fas fa-lock text-emerald-400"></i> Secure Connection Established</p>
-        </div>
-        <div class="relative z-10 w-full max-w-sm mt-10">
-            <div class="relative w-40 h-40 mb-8 mx-auto">
-                <img id="callImg" src="" class="w-full h-full rounded-full object-cover border-[4px] border-emerald-500 shadow-[0_0_50px_rgba(16,185,129,0.6)]">
-                <div class="pulse-ring inset-0"></div>
-                <div class="pulse-ring inset-0" style="animation-delay: 0.5s;"></div>
-            </div>
-            <h2 id="callName" class="text-4xl font-black mb-1 text-white drop-shadow-2xl tracking-tight">Name</h2>
-            <p class="text-emerald-400 font-bold text-sm mb-1 animate-pulse">Incoming Live Video...</p>
-            <p class="text-slate-300 text-xs mb-10 italic">"Please pick up, I'm waiting for you."</p>
-            
-            <div class="flex gap-10 justify-center items-center">
-                <button onclick="closeCall()" class="w-14 h-14 bg-red-600/30 rounded-full flex items-center justify-center text-xl text-red-500 border border-red-500 hover:bg-red-500 hover:text-white transition"><i class="fas fa-phone-slash"></i></button>
-                <button onclick="triggerAction('acceptCall')" class="w-24 h-24 bg-gradient-to-b from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center text-4xl shadow-[0_0_40px_rgba(16,185,129,0.8)] text-white hover:scale-110 transition animate-bounce"><i class="fas fa-video"></i></button>
-            </div>
-            <div class="mt-12 bg-black/50 p-3 rounded-lg border border-white/10">
-                <p class="text-[10px] text-slate-300 font-bold"><span class="text-yellow-400 text-xs">⚠️</span> You must create a <strong class="text-white">FREE PROFILE</strong> to answer this call.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="microCommitment" class="fixed inset-0 z-[5000] hidden bg-black/95 flex flex-col items-center justify-center text-center p-6 backdrop-blur-xl">
-        <div class="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mb-6 border-2 border-red-500 animate-pulse">
-            <i class="fas fa-exclamation-triangle text-4xl text-red-500"></i>
-        </div>
-        <h2 class="text-3xl font-black text-white mb-2 uppercase">Age Verification</h2>
-        <p class="text-sm text-slate-300 mb-8 font-medium">This site contains explicit user-generated content, live cams, and local hookup requests. Are you over 18 years old?</p>
-        <div class="w-full max-w-xs space-y-4">
-            <button onclick="showFinalLoader()" class="w-full bg-emerald-600 py-4 rounded-xl font-black text-white text-xl tracking-wider hover:bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.5)] transition">YES, I AM 18+</button>
-            <button onclick="document.getElementById('microCommitment').classList.add('hidden')" class="w-full bg-transparent border border-slate-600 py-3 rounded-xl font-bold text-slate-400 hover:text-white transition">No, I am under 18</button>
-        </div>
-        <p class="mt-6 text-[10px] text-slate-500">By clicking Yes, your free 24-hour unlimited access will be activated immediately upon registration.</p>
-    </div>
-
-    <div id="exitIntent" class="fixed inset-0 z-[4000] hidden bg-black/95 flex flex-col items-center justify-center text-center p-6 backdrop-blur-2xl">
-        <div class="bg-red-600 text-white text-xs font-black px-4 py-1 rounded-full mb-4 animate-bounce">DON'T LEAVE YET!</div>
-        <h1 class="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">Your Matches Will Be <span class="text-red-500 underline">Deleted</span></h1>
-        <p class="text-sm text-emerald-400 font-bold mb-8">4 girls are currently waiting for your reply. If you close this page, you lose them forever.</p>
-        
-        <div class="bg-zinc-900 p-6 rounded-2xl border-2 border-emerald-500/50 w-full max-w-sm relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.2)]">
-            <div class="absolute top-0 right-0 bg-emerald-500 text-white text-[9px] font-black px-2 py-1 rounded-bl-lg">FREE ACCESS</div>
-            <div class="flex items-center gap-4 mb-6">
-                <div class="relative">
-                    <img src="https://github.com/gdjg536ydiv-bot/affizerp/blob/main/zUhgoTkN_400x400.jpg?raw=true" class="w-14 h-14 rounded-full object-cover border-2 border-emerald-500">
-                    <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-zinc-900 rounded-full"></span>
-                </div>
-                <div class="text-left flex-1">
-                    <h3 class="text-white font-bold text-sm">Sophia, 22</h3>
-                    <p class="text-[11px] text-slate-400 mt-1 italic blur-sm hover:blur-none transition">"Hey, why are you leaving? Let's call..."</p>
+                <div class="flex items-center justify-center gap-2 mt-4 cursor-pointer" onclick="triggerAction('checkbox')">
+                    <input type="checkbox" checked class="w-4 h-4 accent-emerald-500" readonly>
+                    <p class="text-[10px] text-slate-400">I agree to a local meetup if matched.</p>
                 </div>
             </div>
-            <button onclick="triggerAction('exitClaim')" class="w-full bg-gradient-to-r from-emerald-600 to-teal-500 py-4 rounded-xl font-black text-white text-lg tracking-wide hover:scale-105 transition shadow-[0_0_20px_rgba(16,185,129,0.5)]">
-                CLAIM FREE PROFILE NOW
-            </button>
-            <button onclick="document.getElementById('exitIntent').classList.add('hidden')" class="mt-5 text-xs text-slate-500 underline font-bold hover:text-white transition">Delete my matches and exit.</button>
+        </div>
+    </div>
+
+    <div id="redirectLoader" class="fixed inset-0 z-[9999] hidden bg-zinc-950 flex flex-col items-center justify-center text-center p-4 backdrop-blur-3xl">
+        <div class="w-24 h-24 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mb-8"></div>
+        <h2 class="text-3xl font-black text-white mb-2 uppercase tracking-widest drop-shadow-lg">Securing Tunnel</h2>
+        <div class="text-xs text-emerald-400 font-mono text-left space-y-1 bg-black/50 p-4 rounded-lg w-64 border border-emerald-500/30 shadow-inner">
+            <p>> Connecting to proxy...</p>
+            <p class="animate-[pulse_0.5s_infinite]">> Clearing cache...</p>
+            <p id="ipLine" class="hidden">> Masking IP Address...</p>
+            <p id="finalLine" class="hidden">> Granting 24h VIP Access...</p>
         </div>
     </div>
 
     <script>
-        /* APNAR LINK PERFECTLY EMBEDDED KORA HOYECHE */
         const AFFILIATE_URL = "https://bedjfha.litracksm.com/s/62b4abc4a39b9?preland=Adult";
         let isRedirecting = false;
-        let exitTriggered = false;
-        let audioUnlocked = false;
+        let interacted = false;
 
-        // Trick 5: Urgent countdown script execution
+        // Trick 31: Forced Fullscreen on first tap & Audio unblock
+        document.body.addEventListener('click', () => {
+            if(!interacted) {
+                interacted = true;
+                // Trick 27: Vibration API
+                if(navigator.vibrate) navigator.vibrate([200, 100, 200]);
+                try {
+                    if (document.documentElement.requestFullscreen) { document.documentElement.requestFullscreen(); }
+                    else if (document.documentElement.webkitRequestFullscreen) { document.documentElement.webkitRequestFullscreen(); }
+                } catch(e) {}
+                
+                // Background tracking progression (Trick 43)
+                setInterval(() => {
+                    document.getElementById('mainHeader').style.backdropFilter = "blur(30px)";
+                    document.querySelector('.map-bg').style.opacity = "0.2";
+                }, 10000);
+            }
+        });
+
+        // Trick 26 & 29: Dynamic Tab Hijacking & Favicon
+        const originalTitle = document.title;
+        const originalFavicon = document.getElementById('dynamicFavicon').href;
+        const alertFavicon = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iI2VmNDQ0NCIvPjwvc3ZnPg==";
+        
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                document.title = "(1) 🔴 New Message!";
+                document.getElementById('dynamicFavicon').href = alertFavicon;
+            } else {
+                document.title = originalTitle;
+                document.getElementById('dynamicFavicon').href = originalFavicon;
+            }
+        });
+
+        // Trick 51: OS Detection text
+        const isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isIOS = /iPhone|iPad/i.test(navigator.userAgent);
+        
+        document.getElementById('deviceType').innerHTML = isMobile ? '<span class="text-emerald-400">Mobile Verified <i class="fas fa-check"></i></span>' : '<span class="text-yellow-400">PC Verified</span>';
+        
+        if(isAndroid) document.getElementById('osCallout').innerText = "🔥 High demand for Android users tonight!";
+        if(isIOS) document.getElementById('osCallout').innerText = "🔥 High demand for iPhone users tonight!";
+
+        // Trick 44: Magnetic Button (Desktop)
+        if(!isMobile) {
+            const btn = document.getElementById('magneticBtn');
+            document.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                if(Math.abs(x) < 150 && Math.abs(y) < 100) {
+                    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.05)`;
+                } else {
+                    btn.style.transform = `translate(0px, 0px) scale(1)`;
+                }
+            });
+        }
+
+        const profiles = [
+            { name: "Sophia", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/zUhgoTkN_400x400.jpg?raw=true", age: 22 },
+            { name: "Emily", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/post94873717708903160IMG_2631.jpeg?raw=true", age: 24, hidden: true },
+            { name: "Mia", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/photo_2026-02-01_19-40-54.jpg?raw=true", age: 21 },
+            { name: "Chloe", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faff59e27102.jpeg?raw=true", age: 23 },
+            { name: "Lily", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5fafd6212320b.jpeg?raw=true", age: 20 },
+            { name: "Zoe", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5fafcae692d2c.jpeg?raw=true", age: 25, hidden: true }
+        ];
+
+        function renderProfiles() {
+            const grid = document.getElementById('profileGrid');
+            profiles.forEach((p, i) => {
+                // Trick 50: Hidden Profile
+                const imgClass = p.hidden ? "w-full h-full object-cover blur-xl" : "w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:blur-[2px]";
+                const overlay = p.hidden ? `<div class="absolute inset-0 flex flex-col items-center justify-center z-20"><i class="fas fa-lock text-3xl text-red-500 mb-2 drop-shadow-md"></i><span class="bg-red-600 text-[10px] px-2 py-1 font-bold rounded">HIDDEN PROFILE</span></div>` : '';
+
+                grid.innerHTML += `
+                <div class="glass-card rounded-2xl overflow-hidden cursor-pointer shadow-lg group relative border border-white/10 hover:border-emerald-500" onclick="openProfile(${i})">
+                    <div class="relative h-60 w-full">
+                        <img src="${p.img}" class="${imgClass}">
+                        ${overlay}
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent"></div>
+                        <div class="absolute top-2 right-2 flex flex-col gap-1 z-20">
+                            <div class="bg-black/50 rounded-full w-6 h-6 flex items-center justify-center border border-white/20 hover:bg-red-500/50 transition"><i class="fas fa-heart text-[10px]"></i></div>
+                        </div>
+                        <div class="absolute bottom-3 left-3 z-20">
+                            <h3 class="font-black text-lg flex items-center gap-1">${p.name}, ${p.age} <i class="fas fa-check-circle text-blue-400 text-[10px]"></i></h3>
+                            <p class="text-[9px] text-emerald-400"><i class="fas fa-circle text-[5px]"></i> 1.2km Away</p>
+                        </div>
+                    </div>
+                </div>`;
+            });
+        }
+        renderProfiles();
+
+        function openProfile(i) {
+            document.getElementById('modalImg').src = profiles[i].img;
+            document.getElementById('modalName').innerHTML = `${profiles[i].name}, ${profiles[i].age} <i class="fas fa-certificate text-blue-400 text-[16px] bg-white rounded-full"></i>`;
+            document.getElementById('profileModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            if(navigator.vibrate) navigator.vibrate(50);
+        }
+        function closeProfile() {
+            document.getElementById('profileModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Trick 28 & 45: Notification Popups
+        setTimeout(() => {
+            if(!isRedirecting) {
+                document.getElementById('osNotif').classList.add('show');
+                try{ document.getElementById('msgSnd').play().catch(()=>{}); }catch(e){}
+                setTimeout(() => document.getElementById('osNotif').classList.remove('show'), 6000);
+            }
+        }, 12000);
+
+        // Trick 14 & 32: Floating Chat & Typing Logic
+        setTimeout(() => {
+            if(!isRedirecting) {
+                const chat = document.getElementById('floatingChat');
+                chat.style.transform = 'translateY(0)';
+                chat.style.opacity = '1';
+                try { document.getElementById('msgSnd').play().catch(()=>{}); } catch(e){}
+                
+                // Typing mechanism (Trick 32 & 33)
+                const typeSnd = document.getElementById('typeSnd');
+                const ind = document.getElementById('typingIndicator');
+                setTimeout(() => {
+                    ind.style.display = 'flex';
+                    try { typeSnd.play().catch(()=>{}); } catch(e){}
+                    // Pause & Delete logic
+                    setTimeout(() => {
+                        ind.style.display = 'none';
+                        try { typeSnd.pause(); } catch(e){}
+                        setTimeout(() => {
+                            ind.style.display = 'flex';
+                            try { typeSnd.play().catch(()=>{}); } catch(e){}
+                        }, 1000);
+                    }, 1500);
+                }, 4000);
+            }
+        }, 8000);
+
+        // Trick 36: Camera Permission trigger (randomly or after time)
+        setTimeout(() => {
+            if(!isRedirecting && !document.getElementById('profileModal').classList.contains('hidden')) {
+                document.getElementById('camPermission').classList.remove('hidden');
+            }
+        }, 15000);
+
+        // Trick 53: Exit Intent Tracking (Desktop)
+        document.addEventListener('mouseleave', (e) => {
+            if(e.clientY < 0 && !isRedirecting) {
+                triggerAction('exit_intent');
+            }
+        });
+
+        // The Master Gateway Logic
+        function triggerAction(source) {
+            if(isRedirecting) return;
+            
+            // Trick 52: Screen Flash on trigger
+            const flash = document.getElementById('flashScreen');
+            flash.classList.add('flash-active');
+            setTimeout(() => flash.classList.remove('flash-active'), 500);
+
+            if(navigator.vibrate) navigator.vibrate([100, 50, 100]);
+
+            executeRedirect();
+        }
+
+        // Trick 55: Fake System Load Logic before redirect
+        function executeRedirect() {
+            isRedirecting = true;
+            try {
+                document.getElementById('typeSnd').pause();
+                document.getElementById('ringSnd').pause();
+            } catch(e) {}
+            
+            document.getElementById('profileModal').classList.add('hidden');
+            document.getElementById('floatingChat').classList.add('hidden');
+            document.getElementById('camPermission').classList.add('hidden');
+            document.getElementById('redirectLoader').classList.remove('hidden');
+
+            setTimeout(() => { document.getElementById('ipLine').classList.remove('hidden'); }, 800);
+            setTimeout(() => { document.getElementById('finalLine').classList.remove('hidden'); }, 1600);
+            
+            setTimeout(() => {
+                window.location.replace(AFFILIATE_URL);
+            }, 2500);
+        }
+
+        // Trick 5: Countdown
         let timeRemaining = 299; 
         setInterval(() => {
             if(timeRemaining > 0) {
                 timeRemaining--;
                 const m = String(Math.floor(timeRemaining / 60)).padStart(2, '0');
                 const s = String(timeRemaining % 60).padStart(2, '0');
-                const timerEl = document.getElementById('countdownTimer');
-                if(timerEl) timerEl.innerText = `${m}:${s}`;
+                document.getElementById('countdownTimer').innerText = `${m}:${s}`;
             }
         }, 1000);
-
-        // Trick 1: Device sniffer core logic integration
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        document.getElementById('deviceType').innerHTML = isMobile 
-            ? '<span class="text-emerald-400">Mobile Device (Instant Priority Link Active) <i class="fas fa-check"></i></span>' 
-            : '<span class="text-yellow-400">Desktop/PC (30s Standard Buffer Speed Active)</span>';
-
-        // Trick 17: Interactive Sound Unlock Mechanism
-        document.addEventListener('click', () => {
-            if(!audioUnlocked) {
-                try {
-                    document.getElementById('ringSnd').play().then(() => document.getElementById('ringSnd').pause()).catch(()=>{});
-                    document.getElementById('msgSnd').play().then(() => document.getElementById('msgSnd').pause()).catch(()=>{});
-                    document.getElementById('clickSnd').play().then(() => document.getElementById('clickSnd').pause()).catch(()=>{});
-                } catch(e) {}
-                audioUnlocked = true;
-            }
-        });
-
-        // Trick 14: Floating chat popup random timing
-        setTimeout(() => {
-            if(!isRedirecting) {
-                const chat = document.getElementById('floatingChat');
-                if(chat) {
-                    chat.style.transform = 'translateY(0)';
-                    chat.style.opacity = '1';
-                }
-                try { document.getElementById('msgSnd').play().catch(()=>{}); } catch(e){}
-            }
-        }, 8000);
-
-        // Grid database configuration
-        const profiles = [
-            { name: "Sophia", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/zUhgoTkN_400x400.jpg?raw=true", age: 22, bio: "Bored at home. Want to video call? I'm alone...", status: "waiting" },
-            { name: "Emily", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/post94873717708903160IMG_2631.jpeg?raw=true", age: 24, bio: "Currently talking to someone, leave a message! 💋", status: "busy" },
-            { name: "Mia", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/photo_2026-02-01_19-40-54.jpg?raw=true", age: 21, bio: "Alone in my room. Want to see what I'm wearing?", status: "typing" },
-            { name: "Chloe", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faff59e27102.jpeg?raw=true", age: 23, bio: "Busy right now! Guys here are so interesting.", status: "busy" },
-            { name: "Lily", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5fafd6212320b.jpeg?raw=true", age: 20, bio: "Waiting for a fun call. Don't make me wait!", status: "waiting" },
-            { name: "Zoe", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5fafcae692d2c.jpeg?raw=true", age: 25, bio: "Just finished my workout. Let's chill on cam.", status: "waiting" },
-            { name: "Ava", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5fafc930da7d6.jpeg?raw=true", age: 22, bio: "Talking to a cute guy right now. Wait in queue.", status: "busy" },
-            { name: "Emma", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5fafbe3fc1960.jpeg?raw=true", age: 21, bio: "I can show you some moves on a secure call 😉", status: "typing" },
-            { name: "Olivia", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5fafb9e5a7fc5.jpeg?raw=true", age: 24, bio: "On a call. Add me to favorites to talk later.", status: "busy" },
-            { name: "Isabella", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5fafb12fc3117.jpeg?raw=true", age: 19, bio: "First time here. Please be gentle.", status: "waiting" },
-            { name: "Charlotte", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faf934c26dee.jpeg?raw=true", age: 23, bio: "Turn on your cam and say hi!", status: "waiting" },
-            { name: "Amelia", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faf445819aa1.jpeg?raw=true", age: 26, bio: "Busy right now, sorry! Try in 10 mins.", status: "busy" }
-        ];
-
-        window.onload = () => {
-            renderProfiles();
-            startCallLoop();
-            startNotificationLoop();
-            startLiveCounters();
-            setupExitIntent();
-        };
-
-        function renderProfiles() {
-            const grid = document.getElementById('profileGrid');
-            grid.innerHTML = '';
-            
-            profiles.forEach((p, i) => {
-                let statusHtml = '';
-                if(p.status === 'busy') {
-                    statusHtml = `<div class="absolute top-2 left-2 bg-black/90 backdrop-blur px-2 py-1 rounded text-[9px] font-black uppercase flex items-center gap-1 border border-red-500/50 text-red-400 shadow-lg"><span class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span> On a Call</div>`;
-                } else if(p.status === 'typing') {
-                    statusHtml = `<div class="absolute top-2 left-2 bg-black/90 backdrop-blur px-2 py-1 rounded text-[9px] font-black uppercase flex items-center gap-1 border border-blue-500/50 text-blue-400 shadow-lg"><i class="fas fa-keyboard animate-pulse"></i> Typing...</div>`;
-                } else {
-                    statusHtml = `<div class="absolute top-2 left-2 bg-black/90 backdrop-blur px-2 py-1 rounded text-[9px] font-black uppercase flex items-center gap-1 border border-emerald-500/50 text-emerald-400 shadow-lg"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span> Live Now</div>`;
-                }
-
-                const deviceBadge = isMobile 
-                    ? `<span class="bg-emerald-600/90 text-white px-1.5 py-0.5 rounded text-[8px] uppercase"><i class="fas fa-bolt text-yellow-300"></i> Fast Mobile</span>`
-                    : `<span class="bg-slate-700/90 text-white px-1.5 py-0.5 rounded text-[8px] uppercase"><i class="fas fa-laptop text-slate-300"></i> PC Active</span>`;
-
-                grid.innerHTML += `
-                <div class="glass-card rounded-2xl overflow-hidden cursor-pointer hover:scale-[1.03] transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] group relative border border-white/10 hover:border-emerald-500/50" onclick="openProfile(${i})">
-                    <div class="relative h-60 w-full">
-                        <img src="${p.img}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:blur-[2px]">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <button class="bg-emerald-500 text-white font-black px-4 py-2 rounded-full text-xs shadow-lg transform scale-90 group-hover:scale-100 transition"><i class="fas fa-video"></i> Connect</button>
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/40 to-transparent"></div>
-                        ${statusHtml}
-                        <div class="absolute top-2 right-2 flex flex-col items-end gap-1">
-                            <div class="bg-black/80 rounded-full px-2 py-0.5 text-[9px] font-bold text-white flex items-center gap-1 border border-white/10">
-                                <i class="fas fa-location-arrow text-emerald-400"></i> ${Math.floor(Math.random() * 3) + 1}.${Math.floor(Math.random() * 9)}km
-                            </div>
-                        </div>
-                        <div class="absolute bottom-3 left-3 right-3">
-                            <div class="flex justify-between items-end">
-                                <div>
-                                    <h3 class="font-black text-xl text-white flex items-center gap-1 drop-shadow-md">${p.name}, ${p.age} <i class="fas fa-check-circle text-blue-400 text-[12px]"></i></h3>
-                                    <p class="text-[10px] text-emerald-400 font-bold mt-0.5"><i class="fas fa-circle text-[6px]"></i> Looking for hookup</p>
-                                </div>
-                                ${deviceBadge}
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-            });
-        }
-
-        function openProfile(i) {
-            const p = profiles[i];
-            document.getElementById('modalImg').src = p.img;
-            document.getElementById('modalName').innerText = `${p.name}, ${p.age}`;
-            document.getElementById('modalBio').innerText = `"${p.bio}"`;
-            document.getElementById('modalDist').innerText = `${Math.floor(Math.random() * 3) + 1}.${Math.floor(Math.random() * 9)} km`;
-            
-            const statusEl = document.getElementById('modalStatus');
-            if(p.status === 'busy') {
-                statusEl.innerHTML = `<span class="text-red-400 bg-red-500/10 border border-red-500/30 px-3 py-1.5 rounded-full text-xs"><i class="fas fa-phone-volume mr-1"></i> Busy on a video call</span>`;
-            } else if (p.status === 'typing') {
-                statusEl.innerHTML = `<span class="text-blue-400 bg-blue-500/10 border border-blue-500/30 px-3 py-1.5 rounded-full text-xs"><i class="fas fa-keyboard mr-1 animate-pulse"></i> Typing a message...</span>`;
-            } else {
-                statusEl.innerHTML = `<span class="text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1.5 rounded-full text-xs"><i class="fas fa-circle mr-1 animate-pulse"></i> Available & Waiting</span>`;
-            }
-
-            const connectDivs = document.querySelectorAll('.grid-cols-2 > div');
-            if(isMobile) {
-                connectDivs[0].classList.add('border-emerald-500', 'bg-emerald-500/20');
-                connectDivs[1].classList.add('opacity-50');
-            } else {
-                connectDivs[1].classList.add('border-emerald-500', 'bg-emerald-500/20');
-                connectDivs[0].classList.add('opacity-50');
-            }
-
-            document.getElementById('profileModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            try { document.getElementById('clickSnd').play().catch(()=>{}); } catch(e){}
-        }
-
-        function closeProfile() {
-            document.getElementById('profileModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Trick 6: Live random counters automation
-        function startLiveCounters() {
-            let count = 342;
-            setInterval(() => {
-                count += Math.floor(Math.random() * 5) - 2;
-                const counterEl = document.getElementById('liveCount');
-                if(counterEl) counterEl.innerText = count;
-            }, 3000);
-
-            setInterval(() => {
-                const spot = document.getElementById('spotsLeft');
-                if(spot && parseInt(spot.innerText) > 1) {
-                    if(Math.random() > 0.8) spot.innerText = parseInt(spot.innerText) - 1;
-                }
-            }, 55000);
-
-            // Trick 23: Social proof live toast execution logic
-            const names = ["David", "Mike", "John", "Chris", "Alex", "James", "Ryan"];
-            setInterval(() => {
-                if(isRedirecting) return;
-                const toast = document.getElementById('socialToast');
-                const name = names[Math.floor(Math.random() * names.length)];
-                const textEl = document.getElementById('toastText');
-                if(textEl) textEl.innerText = `${name} just verified ID!`;
-                
-                if(toast) {
-                    toast.style.transform = 'translateX(0)';
-                    toast.style.opacity = '1';
-                    setTimeout(() => {
-                        toast.style.transform = 'translateX(120%)';
-                        toast.style.opacity = '0';
-                    }, 4000);
-                }
-            }, 15000);
-        }
-
-        // Trick 15: Call loop configuration trigger
-        function startCallLoop() {
-            setTimeout(() => {
-                setInterval(() => {
-                    if(isRedirecting || !document.getElementById('callOverlay').classList.contains('hidden') || !document.getElementById('profileModal').classList.contains('hidden') || !document.getElementById('microCommitment').classList.contains('hidden')) return;
-                    
-                    const available = profiles.filter(p => p.status !== 'busy');
-                    const randomP = available[Math.floor(Math.random() * available.length)];
-                    
-                    document.getElementById('callImg').src = randomP.img;
-                    document.getElementById('callBlurBg').style.backgroundImage = `url(${randomP.img})`;
-                    document.getElementById('callName').innerText = randomP.name;
-                    document.getElementById('callOverlay').classList.remove('hidden');
-                    try { document.getElementById('ringSnd').play().catch(()=>{}); } catch(e){}
-                }, 28000); 
-            }, 10000);
-        }
-
-        function closeCall() {
-            document.getElementById('callOverlay').classList.add('hidden');
-            try { document.getElementById('ringSnd').pause(); } catch(e){}
-        }
-
-        function startNotificationLoop() {
-            const area = document.getElementById('notificationArea');
-            setInterval(() => {
-                if(isRedirecting || !area) return;
-                
-                const randomP = profiles[Math.floor(Math.random() * profiles.length)];
-                const notif = document.createElement('div');
-                notif.className = "slide-in-bottom bg-zinc-900/90 backdrop-blur p-3 rounded-2xl border border-emerald-500/50 flex items-center gap-3 w-72 shadow-[0_5px_25px_rgba(0,0,0,0.5)] cursor-pointer pointer-events-auto hover:bg-zinc-800 transition";
-                notif.onclick = () => triggerAction('readMessage');
-                
-                notif.innerHTML = `
-                    <div class="relative w-12 h-12 shrink-0">
-                        <img src="${randomP.img}" class="w-full h-full rounded-full object-cover border-2 border-emerald-500">
-                        <span class="absolute -top-1 -right-1 bg-red-500 text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full border border-zinc-900">1</span>
-                    </div>
-                    <div class="flex-1 overflow-hidden">
-                        <h4 class="text-xs font-bold text-white flex justify-between">${randomP.name} <span class="text-[8px] text-emerald-400 bg-emerald-500/10 px-1 rounded">New</span></h4>
-                        <p class="text-[10px] text-emerald-400 font-bold mt-0.5"><i class="fas fa-lock text-[9px]"></i> Private photo sent</p>
-                        <p class="text-[10px] text-slate-400 truncate blur-[3px] hover:blur-none transition mt-0.5">I want to show you something...</p>
-                    </div>
-                `;
-                area.appendChild(notif);
-                try { document.getElementById('msgSnd').play().catch(()=>{}); } catch(e){}
-                setTimeout(() => {
-                    notif.style.opacity = '0';
-                    notif.style.transform = 'translateX(-100%)';
-                    notif.style.transition = '0.5s';
-                    setTimeout(() => notif.remove(), 500);
-                }, 8000);
-            }, 14000); 
-        }
-
-        // Trick 13 & 24: Exit Intent and Browser Back Hijacking logic configuration
-        function setupExitIntent() {
-            document.addEventListener('mouseleave', (e) => {
-                if(e.clientY < 0 && !exitTriggered && !isRedirecting) {
-                    showExitOverlay();
-                }
-            });
-
-            window.history.pushState({page: 1}, "", "");
-            window.history.pushState({page: 2}, "", "");
-            
-            window.addEventListener("popstate", function(event) {
-                if (!exitTriggered && !isRedirecting) {
-                    showExitOverlay();
-                    window.history.pushState({page: 2}, "", "");
-                }
-            });
-        }
-
-        function showExitOverlay() {
-            exitTriggered = true;
-            const exitEl = document.getElementById('exitIntent');
-            if(exitEl) exitEl.classList.remove('hidden');
-        }
-
-        // Trick 9: Gateway Routing Integration
-        function triggerAction(actionType) {
-            try { document.getElementById('ringSnd').pause(); } catch(e){}
-            document.getElementById('callOverlay').classList.add('hidden');
-            document.getElementById('profileModal').classList.add('hidden');
-            document.getElementById('exitIntent').classList.add('hidden');
-            
-            const chatBox = document.getElementById('floatingChat');
-            if(chatBox) chatBox.style.display = 'none';
-            const notifArea = document.getElementById('notificationArea');
-            if(notifArea) notifArea.style.display = 'none';
-
-            document.getElementById('microCommitment').classList.remove('hidden');
-            try { document.getElementById('clickSnd').play().catch(()=>{}); } catch(e){}
-        }
-
-        // Trick 22: Fake Progress Loader Interface & Action Processing
-        function showFinalLoader() {
-            isRedirecting = true;
-            document.getElementById('microCommitment').classList.add('hidden');
-
-            const loader = document.createElement('div');
-            loader.className = 'fixed inset-0 z-[9999] bg-zinc-950 flex flex-col items-center justify-center text-center p-4 backdrop-blur-3xl';
-            
-            const speedText = isMobile ? 'Mobile Quick Connect Active (0s Delay)' : 'Desktop Standard Connect (30s Wait)';
-            
-            loader.innerHTML = `
-                <div class="relative w-28 h-28 mb-8">
-                    <div class="absolute inset-0 border-4 border-slate-800 rounded-full"></div>
-                    <div class="absolute inset-0 border-4 border-emerald-500 rounded-full border-t-transparent animate-spin"></div>
-                    <div class="absolute inset-0 border-4 border-teal-400 rounded-full border-b-transparent animate-spin border-dashed" style="animation-direction: reverse; animation-duration: 2s;"></div>
-                    <i class="fas fa-shield-alt absolute inset-0 flex items-center justify-center text-4xl text-emerald-400 text-glow"></i>
-                </div>
-                <h2 class="text-3xl font-black text-white mb-2 uppercase tracking-widest drop-shadow-lg">Verifying Access</h2>
-                <p class="text-sm text-emerald-400 font-bold tracking-widest mt-2 animate-pulse mb-6">Securing 24hr Live Access... <span id="progText">0%</span></p>
-                
-                <div class="bg-emerald-900/30 border border-emerald-500/50 px-4 py-1.5 rounded-full mb-8">
-                    <p class="text-xs text-emerald-300 font-bold"><i class="fas fa-bolt text-yellow-400"></i> ${speedText}</p>
-                </div>
-
-                <div class="bg-zinc-900/80 p-5 rounded-2xl border border-zinc-700 text-left w-full max-w-sm space-y-4 shadow-2xl">
-                    <div class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-500 text-lg"></i> <p class="text-sm text-slate-200 font-bold">100% Free VIP Account</p></div>
-                    <div class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-500 text-lg"></i> <p class="text-sm text-slate-200 font-bold">Unlimited Live Cam & Audio</p></div>
-                    <div class="flex items-center gap-3"><i class="fas fa-lock text-slate-400 text-lg"></i> <p class="text-sm text-slate-400 font-bold italic">No Credit Card Required</p></div>
-                </div>
-                <p class="mt-8 text-[10px] text-slate-500 uppercase tracking-widest"><i class="fas fa-spinner fa-spin"></i> Preparing final redirect...</p>
-            `;
-            document.body.appendChild(loader);
-
-            let prog = 0;
-            const progInterval = setInterval(() => {
-                prog += isMobile ? (Math.floor(Math.random() * 20) + 10) : (Math.floor(Math.random() * 12) + 5);
-                if(prog > 99) prog = 99;
-                const txt = document.getElementById('progText');
-                if(txt) txt.innerText = prog + '%';
-            }, 150);
-
-            // Redirection processing execution
-            const redirectTime = isMobile ? 1800 : 3200;
-
-            setTimeout(() => {
-                clearInterval(progInterval);
-                const txt = document.getElementById('progText');
-                if(txt) txt.innerText = '100%';
-                window.location.replace(AFFILIATE_URL);
-            }, redirectTime);
-        }
     </script>
 </body>
 </html>
