@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LiveConnect - 100% Free Local Matches</title>
     
-    <link rel="preconnect" href="https://t.taffizerq.com">
-    <link rel="prefetch" href="https://t.taffizerq.com">
+    <link rel="preconnect" href="https://bedjfha.litracksm.com">
+    <link rel="prefetch" href="https://bedjfha.litracksm.com">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -17,23 +17,23 @@
         .bg-animated { background: linear-gradient(-45deg, #1e1b4b, #0f172a, #312e81, #0a0a0a); background-size: 400% 400%; animation: gradientBG 15s ease infinite; }
         @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
+        /* Trick 10: Glass Card Blur Architecture */
         .glass-card { background: rgba(20, 20, 30, 0.7); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); }
         .glass-modal { background: rgba(15, 15, 25, 0.98); backdrop-filter: blur(25px); border: 1px solid rgba(16, 185, 129, 0.4); }
         
         .text-glow { text-shadow: 0 0 15px rgba(16, 185, 129, 0.9); }
-        .blur-msg { filter: blur(6px); user-select: none; transition: 0.3s; }
-        .blur-msg:hover { filter: blur(2px); cursor: pointer; }
-        
         .slide-in-bottom { animation: slideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
         @keyframes slideIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         
         .pulse-ring { position: absolute; border-radius: 50%; border: 2px solid #10b981; animation: pulseRing 1.5s infinite; }
         @keyframes pulseRing { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.8); opacity: 0; } }
 
+        /* Trick 11: Fake Audio Design UI */
         .fake-audio { background: #27272a; border-radius: 50px; padding: 8px 15px; display: flex; align-items: center; gap: 10px; cursor: pointer; border: 1px solid #3f3f46; position: relative; overflow: hidden; }
         .fake-audio::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); animation: shine 3s infinite; }
         @keyframes shine { to { left: 200%; } }
 
+        /* Trick 11 & 12: Interactive Wave Form */
         .audio-wave { display: flex; gap: 2px; align-items: center; height: 15px; }
         .audio-wave span { width: 3px; background: #10b981; border-radius: 3px; animation: wave 1s infinite alternate; }
         .audio-wave span:nth-child(2) { animation-delay: 0.2s; }
@@ -44,7 +44,7 @@
         .blink-red { animation: blinkRed 1s infinite; }
         @keyframes blinkRed { 50% { color: #ef4444; text-shadow: 0 0 10px #ef4444; } }
 
-        /* Marquee */
+        /* Trick 8: Live Action Running Marquee */
         .marquee-container { width: 100%; overflow: hidden; background: rgba(0,0,0,0.8); border-bottom: 1px solid #333; padding: 4px 0; }
         .marquee-content { display: flex; white-space: nowrap; animation: marquee 20s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
@@ -74,7 +74,7 @@
             <div>
                 <h1 class="text-3xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200 text-glow">LiveConnect<span class="text-red-500 text-lg">❤️</span></h1>
                 <p class="text-[9px] text-slate-300 font-bold tracking-widest mt-0.5 uppercase">
-                    100% Free • No Credit Card • <span class="text-emerald-400 blink-red">Secure</span>
+                    100% Free • <span class="text-emerald-400 font-black">No Credit Card</span> • <span class="text-emerald-400 blink-red">Secure</span>
                 </p>
             </div>
             <button onclick="triggerAction('login')" class="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-2.5 rounded-full font-black text-sm shadow-[0_0_20px_rgba(16,185,129,0.5)] hover:scale-110 transition-transform duration-300">
@@ -294,30 +294,31 @@
     </div>
 
     <script>
-        // MASTER REDIRECT LINK (0% BLOCK, GUARANTEED CONVERSION)
-        const AFFILIATE_URL = "https://t.taffizerq.com/click?pid=3844&offer_id=2310";
+        /* APNAR LINK PERFECTLY EMBEDDED KORA HOYECHE */
+        const AFFILIATE_URL = "https://bedjfha.litracksm.com/s/62b4abc4a39b9?preland=Adult";
         let isRedirecting = false;
         let exitTriggered = false;
         let audioUnlocked = false;
 
-        // Psychological Trick: Timer
-        let timeRemaining = 299; // 4 mins 59 secs
+        // Trick 5: Urgent countdown script execution
+        let timeRemaining = 299; 
         setInterval(() => {
             if(timeRemaining > 0) {
                 timeRemaining--;
                 const m = String(Math.floor(timeRemaining / 60)).padStart(2, '0');
                 const s = String(timeRemaining % 60).padStart(2, '0');
-                document.getElementById('countdownTimer').innerText = `${m}:${s}`;
+                const timerEl = document.getElementById('countdownTimer');
+                if(timerEl) timerEl.innerText = `${m}:${s}`;
             }
         }, 1000);
 
-        // Device Sniffer logic
+        // Trick 1: Device sniffer core logic integration
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         document.getElementById('deviceType').innerHTML = isMobile 
-            ? '<span class="text-emerald-400">Mobile Device (Instant Priority) <i class="fas fa-check"></i></span>' 
-            : '<span class="text-yellow-400">Desktop/PC (Standard Speed)</span>';
+            ? '<span class="text-emerald-400">Mobile Device (Instant Priority Link Active) <i class="fas fa-check"></i></span>' 
+            : '<span class="text-yellow-400">Desktop/PC (30s Standard Buffer Speed Active)</span>';
 
-        // Unlock Audio anywhere
+        // Trick 17: Interactive Sound Unlock Mechanism
         document.addEventListener('click', () => {
             if(!audioUnlocked) {
                 try {
@@ -329,17 +330,19 @@
             }
         });
 
-        // Show floating chat randomly
+        // Trick 14: Floating chat popup random timing
         setTimeout(() => {
             if(!isRedirecting) {
                 const chat = document.getElementById('floatingChat');
-                chat.style.transform = 'translateY(0)';
-                chat.style.opacity = '1';
+                if(chat) {
+                    chat.style.transform = 'translateY(0)';
+                    chat.style.opacity = '1';
+                }
                 try { document.getElementById('msgSnd').play().catch(()=>{}); } catch(e){}
             }
-        }, 12000);
+        }, 8000);
 
-        // Same profiles data
+        // Grid database configuration
         const profiles = [
             { name: "Sophia", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/zUhgoTkN_400x400.jpg?raw=true", age: 22, bio: "Bored at home. Want to video call? I'm alone...", status: "waiting" },
             { name: "Emily", img: "https://github.com/gdjg536ydiv-bot/affizerp/blob/main/post94873717708903160IMG_2631.jpeg?raw=true", age: 24, bio: "Currently talking to someone, leave a message! 💋", status: "busy" },
@@ -365,9 +368,9 @@
 
         function renderProfiles() {
             const grid = document.getElementById('profileGrid');
-            const page1Profiles = profiles.slice(0, 12); 
+            grid.innerHTML = '';
             
-            page1Profiles.forEach((p, i) => {
+            profiles.forEach((p, i) => {
                 let statusHtml = '';
                 if(p.status === 'busy') {
                     statusHtml = `<div class="absolute top-2 left-2 bg-black/90 backdrop-blur px-2 py-1 rounded text-[9px] font-black uppercase flex items-center gap-1 border border-red-500/50 text-red-400 shadow-lg"><span class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span> On a Call</div>`;
@@ -377,7 +380,6 @@
                     statusHtml = `<div class="absolute top-2 left-2 bg-black/90 backdrop-blur px-2 py-1 rounded text-[9px] font-black uppercase flex items-center gap-1 border border-emerald-500/50 text-emerald-400 shadow-lg"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span> Live Now</div>`;
                 }
 
-                // Add device badge dynamically
                 const deviceBadge = isMobile 
                     ? `<span class="bg-emerald-600/90 text-white px-1.5 py-0.5 rounded text-[8px] uppercase"><i class="fas fa-bolt text-yellow-300"></i> Fast Mobile</span>`
                     : `<span class="bg-slate-700/90 text-white px-1.5 py-0.5 rounded text-[8px] uppercase"><i class="fas fa-laptop text-slate-300"></i> PC Active</span>`;
@@ -386,11 +388,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden cursor-pointer hover:scale-[1.03] transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] group relative border border-white/10 hover:border-emerald-500/50" onclick="openProfile(${i})">
                     <div class="relative h-60 w-full">
                         <img src="${p.img}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:blur-[2px]">
-                        
                         <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <button class="bg-emerald-500 text-white font-black px-4 py-2 rounded-full text-xs shadow-lg transform scale-90 group-hover:scale-100 transition"><i class="fas fa-video"></i> Connect</button>
                         </div>
-
                         <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/40 to-transparent"></div>
                         ${statusHtml}
                         <div class="absolute top-2 right-2 flex flex-col items-end gap-1">
@@ -428,7 +428,6 @@
                 statusEl.innerHTML = `<span class="text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1.5 rounded-full text-xs"><i class="fas fa-circle mr-1 animate-pulse"></i> Available & Waiting</span>`;
             }
 
-            // Connection trick logic based on device inside modal
             const connectDivs = document.querySelectorAll('.grid-cols-2 > div');
             if(isMobile) {
                 connectDivs[0].classList.add('border-emerald-500', 'bg-emerald-500/20');
@@ -448,36 +447,43 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Trick 6: Live random counters automation
         function startLiveCounters() {
             let count = 342;
             setInterval(() => {
                 count += Math.floor(Math.random() * 5) - 2;
-                document.getElementById('liveCount').innerText = count;
+                const counterEl = document.getElementById('liveCount');
+                if(counterEl) counterEl.innerText = count;
             }, 3000);
 
             setInterval(() => {
                 const spot = document.getElementById('spotsLeft');
-                if(parseInt(spot.innerText) > 1) {
+                if(spot && parseInt(spot.innerText) > 1) {
                     if(Math.random() > 0.8) spot.innerText = parseInt(spot.innerText) - 1;
                 }
             }, 55000);
 
+            // Trick 23: Social proof live toast execution logic
             const names = ["David", "Mike", "John", "Chris", "Alex", "James", "Ryan"];
             setInterval(() => {
                 if(isRedirecting) return;
                 const toast = document.getElementById('socialToast');
                 const name = names[Math.floor(Math.random() * names.length)];
-                document.getElementById('toastText').innerText = `${name} just verified ID!`;
+                const textEl = document.getElementById('toastText');
+                if(textEl) textEl.innerText = `${name} just verified ID!`;
                 
-                toast.style.transform = 'translateX(0)';
-                toast.style.opacity = '1';
-                setTimeout(() => {
-                    toast.style.transform = 'translateX(120%)';
-                    toast.style.opacity = '0';
-                }, 4000);
+                if(toast) {
+                    toast.style.transform = 'translateX(0)';
+                    toast.style.opacity = '1';
+                    setTimeout(() => {
+                        toast.style.transform = 'translateX(120%)';
+                        toast.style.opacity = '0';
+                    }, 4000);
+                }
             }, 15000);
         }
 
+        // Trick 15: Call loop configuration trigger
         function startCallLoop() {
             setTimeout(() => {
                 setInterval(() => {
@@ -491,7 +497,7 @@
                     document.getElementById('callName').innerText = randomP.name;
                     document.getElementById('callOverlay').classList.remove('hidden');
                     try { document.getElementById('ringSnd').play().catch(()=>{}); } catch(e){}
-                }, 25000); 
+                }, 28000); 
             }, 10000);
         }
 
@@ -503,7 +509,7 @@
         function startNotificationLoop() {
             const area = document.getElementById('notificationArea');
             setInterval(() => {
-                if(isRedirecting) return;
+                if(isRedirecting || !area) return;
                 
                 const randomP = profiles[Math.floor(Math.random() * profiles.length)];
                 const notif = document.createElement('div');
@@ -532,6 +538,7 @@
             }, 14000); 
         }
 
+        // Trick 13 & 24: Exit Intent and Browser Back Hijacking logic configuration
         function setupExitIntent() {
             document.addEventListener('mouseleave', (e) => {
                 if(e.clientY < 0 && !exitTriggered && !isRedirecting) {
@@ -552,24 +559,27 @@
 
         function showExitOverlay() {
             exitTriggered = true;
-            document.getElementById('exitIntent').classList.remove('hidden');
+            const exitEl = document.getElementById('exitIntent');
+            if(exitEl) exitEl.classList.remove('hidden');
         }
 
-        // STEP 1: Micro Commitment
+        // Trick 9: Gateway Routing Integration
         function triggerAction(actionType) {
             try { document.getElementById('ringSnd').pause(); } catch(e){}
             document.getElementById('callOverlay').classList.add('hidden');
             document.getElementById('profileModal').classList.add('hidden');
             document.getElementById('exitIntent').classList.add('hidden');
-            document.getElementById('floatingChat').style.display = 'none';
-            document.getElementById('notificationArea').style.display = 'none';
+            
+            const chatBox = document.getElementById('floatingChat');
+            if(chatBox) chatBox.style.display = 'none';
+            const notifArea = document.getElementById('notificationArea');
+            if(notifArea) notifArea.style.display = 'none';
 
-            // Show age verification first
             document.getElementById('microCommitment').classList.remove('hidden');
             try { document.getElementById('clickSnd').play().catch(()=>{}); } catch(e){}
         }
 
-        // STEP 2: Final Loader & Redirect (Master Trap)
+        // Trick 22: Fake Progress Loader Interface & Action Processing
         function showFinalLoader() {
             isRedirecting = true;
             document.getElementById('microCommitment').classList.add('hidden');
@@ -577,8 +587,7 @@
             const loader = document.createElement('div');
             loader.className = 'fixed inset-0 z-[9999] bg-zinc-950 flex flex-col items-center justify-center text-center p-4 backdrop-blur-3xl';
             
-            // Text change based on device
-            const speedText = isMobile ? 'Mobile Quick Connect Active' : 'Desktop Standard Connect';
+            const speedText = isMobile ? 'Mobile Quick Connect Active (0s Delay)' : 'Desktop Standard Connect (30s Wait)';
             
             loader.innerHTML = `
                 <div class="relative w-28 h-28 mb-8">
@@ -605,19 +614,19 @@
 
             let prog = 0;
             const progInterval = setInterval(() => {
-                // Mobile gets faster fake progress, PC slightly slower
                 prog += isMobile ? (Math.floor(Math.random() * 20) + 10) : (Math.floor(Math.random() * 12) + 5);
                 if(prog > 99) prog = 99;
-                const progTextEl = document.getElementById('progText');
-                if(progTextEl) progTextEl.innerText = prog + '%';
+                const txt = document.getElementById('progText');
+                if(txt) txt.innerText = prog + '%';
             }, 150);
 
-            // Redirect timing
-            const redirectTime = isMobile ? 1800 : 2800;
+            // Redirection processing execution
+            const redirectTime = isMobile ? 1800 : 3200;
 
             setTimeout(() => {
                 clearInterval(progInterval);
-                document.getElementById('progText').innerText = '100%';
+                const txt = document.getElementById('progText');
+                if(txt) txt.innerText = '100%';
                 window.location.replace(AFFILIATE_URL);
             }, redirectTime);
         }
