@@ -6,361 +6,301 @@
     <title id="pageTitle">LiveConnect - 100% Free Local Matches</title>
     <link rel="icon" id="dynamicFavicon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iIzEwYjk4MSIvPjwvc3ZnPg==">
     
-    <link rel="preconnect" href="https://bedjfha.litracksm.com">
-    <link rel="prefetch" href="https://bedjfha.litracksm.com">
+    <meta property="og:title" content="Someone near you wants to connect! ❤️">
+    <meta property="og:description" content="You have (3) unseen messages and (1) missed video call. Tap to open the secure app.">
+    <meta property="og:image" content="https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faff59e27102.jpeg?raw=true">
+    <meta property="og:url" content="https://liveconnect.local">
+    <meta property="og:type" content="website">
 
+    <link rel="preconnect" href="https://bedjfha.litracksm.com">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-        body { font-family: 'Poppins', sans-serif; background: #09090b; overflow-x: hidden; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background: #050505; overflow-x: hidden; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; color: #f3f4f6; padding-bottom: 80px;}
         
-        .bg-animated { background: #0f172a; position: relative; z-index: 1; }
-        .bg-animated::before { content: ""; position: fixed; inset: -50%; background: radial-gradient(circle, rgba(16,185,129,0.05) 0%, rgba(0,0,0,0) 50%); animation: pulseLight 8s infinite alternate; z-index: -1; pointer-events: none; transform: translateZ(0); }
-        @keyframes pulseLight { 0% { transform: scale(1); } 100% { transform: scale(1.5); } }
-
-        .glass-card { background: rgba(20, 20, 30, 0.95); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); }
-        .glass-modal { background: rgba(15, 15, 25, 0.98); border: 1px solid rgba(16, 185, 129, 0.4); }
+        /* Ultra Premium UI Updates */
+        .glass-panel { background: rgba(20, 20, 25, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .premium-shadow { box-shadow: 0 10px 40px -10px rgba(0,0,0,0.8); }
         
-        .glitch-text { position: relative; display: inline-block; font-weight: bold; }
-        .glitch-text::before { content: attr(data-text); position: absolute; left: -2px; text-shadow: 1px 0 red; top: 0; color: white; overflow: hidden; clip: rect(0, 900px, 0, 0); animation: noise-anim-2 3s infinite linear alternate-reverse; }
-        @keyframes noise-anim-2 { 0% { clip: rect(20px, 9999px, 30px, 0); } 50% { clip: rect(10px, 9999px, 50px, 0); } 100% { clip: rect(40px, 9999px, 10px, 0); } }
+        .pulse-badge { animation: pulseBadge 2s infinite; }
+        @keyframes pulseBadge { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
 
-        .text-glow { text-shadow: 0 0 10px rgba(16, 185, 129, 0.6); }
-
-        .marquee-container { width: 100%; overflow: hidden; background: #000; border-bottom: 1px solid #333; padding: 4px 0; transform: translateZ(0); }
-        .marquee-content { display: flex; white-space: nowrap; animation: marquee 25s linear infinite; transform: translateZ(0); }
+        .marquee-container { width: 100%; overflow: hidden; background: #111; border-bottom: 1px solid #222; padding: 4px 0; }
+        .marquee-content { display: flex; white-space: nowrap; animation: marquee 25s linear infinite; }
         @keyframes marquee { 0% { transform: translate3d(100%, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
 
-        .flash-overlay { position: fixed; inset: 0; border: 4px solid red; z-index: 9999; opacity: 0; pointer-events: none; transform: translateZ(0); }
-        .flash-active { animation: flashBorderScreen 0.4s ease-out; }
-        @keyframes flashBorderScreen { 0% { opacity: 1; background: rgba(255,0,0,0.1); } 100% { opacity: 0; background: transparent; } }
-
-        .map-bg { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Google_Maps_icon_%282020%29.svg/512px-Google_Maps_icon_%282020%29.svg.png'); background-size: cover; background-position: center; opacity: 0.03; position: fixed; inset: 0; pointer-events: none; z-index: -1; transform: translateZ(0); }
-
-        .os-notif { position: fixed; top: -120px; left: 50%; transform: translateX(-50%); width: 90%; max-w: 350px; background: #ffffff; border-radius: 12px; padding: 12px; display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 8000; transition: top 0.4s ease-out; }
-        .os-notif.show { top: 20px; }
-
-        /* Trick 60: Swipe to unlock */
-        .swipe-container { width: 100%; max-w: 280px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 25px; margin: 15px auto; position: relative; overflow: hidden; border: 1px solid rgba(16,185,129,0.5); cursor: pointer;}
-        .swipe-text { position: absolute; width: 100%; text-align: center; line-height: 50px; color: #aaa; font-size: 12px; font-weight: bold; pointer-events: none; animation: shimmer 2s infinite linear; background: linear-gradient(90deg, #aaa 0%, #fff 50%, #aaa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% auto; }
-        @keyframes shimmer { to { background-position: 200% center; } }
-        .swipe-btn { height: 40px; width: 60px; background: #10b981; border-radius: 20px; position: absolute; top: 4px; left: 4px; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; box-shadow: 0 0 15px rgba(16,185,129,0.8); }
-
-        /* Trick 61: Incoming Call Full Screen */
-        .incoming-call { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 99999; display: flex; flex-col; align-items: center; justify-content: center; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(10px); }
+        /* Fake Video Call */
+        .incoming-call { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
         .incoming-call.show { opacity: 1; pointer-events: all; }
+
+        /* Progress Bar VIP */
+        #vipBar { width: 100%; height: 3px; background: #333; position: fixed; top: 0; left: 0; z-index: 100000; }
+        #vipProgress { width: 100%; height: 100%; background: #3b82f6; transition: width 1s linear; }
+
+        /* Bottom Nav */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 65px; background: rgba(10, 10, 12, 0.95); border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-around; items-center; z-index: 9000; padding-bottom: env(safe-area-inset-bottom); backdrop-filter: blur(20px); }
+        .nav-item { flex: 1; display: flex; flex-col; align-items: center; justify-content: center; color: #6b7280; font-size: 10px; gap: 4px; position: relative; cursor: pointer; }
+        .nav-item.active { color: #10b981; }
         
-        /* Trick 70: Exit Intent Full Blur */
-        .exit-blur { transition: filter 0.3s; }
-        body.blur-mode .exit-blur { filter: blur(20px) grayscale(50%); pointer-events: none; }
-        body.blur-mode .exit-modal { display: flex; }
+        /* Ring Animation for profile */
+        .match-ring { border-radius: 50%; padding: 4px; background: conic-gradient(#10b981 99%, #333 0); }
     </style>
 </head>
-<body class="bg-animated text-white pb-32 min-h-screen relative" oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+<body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
 
-    <div class="flash-overlay" id="flashScreen"></div>
-    <div class="map-bg" id="mapBg"></div>
+    <div id="vipBar"><div id="vipProgress"></div></div>
 
     <audio id="ringSnd" loop preload="none"><source src="https://assets.mixkit.co/active_storage/sfx/1353/1353-preview.mp3" type="audio/mpeg"></audio>
     <audio id="msgSnd" preload="none"><source src="https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3" type="audio/mpeg"></audio>
     <audio id="typeSnd" loop preload="none"><source src="https://assets.mixkit.co/active_storage/sfx/2564/2564-preview.mp3" type="audio/mpeg"></audio>
     <audio id="reqSnd" preload="none"><source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" type="audio/mpeg"></audio>
 
-    <div id="recordBlock" class="fixed top-2 left-1/2 transform -translate-x-1/2 bg-black/80 border border-red-500 text-red-400 text-[10px] px-4 py-1 rounded-full z-[9999] opacity-0 transition-opacity duration-1000 shadow-[0_0_10px_rgba(220,38,38,0.5)]">
-        <i class="fas fa-video-slash"></i> Screen recording disabled for privacy
-    </div>
-
-    <div class="fixed top-1/3 right-2 z-50 animate-bounce cursor-pointer hover:scale-110 transition" onclick="triggerAction('gift')">
-        <div class="bg-gradient-to-br from-purple-500 to-pink-500 w-12 h-12 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.6)] border border-white/30">
-            <i class="fas fa-gift text-white text-xl"></i>
-            <span class="absolute -top-1 -right-1 flex h-4 w-4"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span><span class="relative inline-flex rounded-full h-4 w-4 bg-red-500 text-[8px] justify-center items-center font-bold">1</span></span>
-        </div>
-    </div>
-
     <div class="incoming-call" id="incomingCall">
-        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-emerald-500 shadow-[0_0_40px_rgba(16,185,129,0.8)] mb-6 animate-pulse">
-            <img src="https://github.com/gdjg536ydiv-bot/affizerp/blob/main/photo_2026-02-01_19-40-54.jpg?raw=true" class="w-full h-full object-cover">
+        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-emerald-500 shadow-[0_0_40px_rgba(16,185,129,0.5)] mb-6 animate-pulse mt-10">
+            <img src="https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faff59e27102.jpeg?raw=true" class="w-full h-full object-cover">
         </div>
-        <h2 class="text-3xl font-black mb-1">Mia is calling...</h2>
-        <p class="text-emerald-400 font-bold mb-12"><i class="fas fa-video"></i> Incoming Secure Video Call</p>
-        <div class="flex gap-10">
-            <button onclick="triggerAction('reject_call')" class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition"><i class="fas fa-phone-slash text-2xl"></i></button>
-            <button onclick="triggerAction('accept_call')" class="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(16,185,129,1)] hover:scale-110 transition animate-bounce"><i class="fas fa-video text-2xl"></i></button>
-        </div>
-    </div>
-
-    <div class="fixed inset-0 z-[10000] hidden bg-black/60 items-center justify-center exit-modal p-4">
-        <div class="bg-red-600 w-full max-w-sm rounded-2xl p-6 text-center shadow-[0_0_50px_rgba(220,38,38,0.8)] border border-red-400 animate-[pulse_1s_infinite]">
-            <h1 class="text-4xl font-black text-white mb-2">WAIT!</h1>
-            <p class="text-white font-bold text-sm mb-4">Your local match is waiting for you. Don't leave!</p>
-            <button onclick="triggerAction('exit_save')" class="w-full bg-white text-red-600 font-black py-4 rounded-xl text-lg hover:scale-105 transition">CONNECT NOW</button>
+        <h2 class="text-3xl font-black mb-1 tracking-tight">Chloe is calling...</h2>
+        <p class="text-emerald-400 font-bold mb-16 text-sm"><i class="fas fa-lock mr-1"></i> End-to-End Encrypted Video</p>
+        <div class="flex gap-12">
+            <button onclick="rejectCall()" class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition"><i class="fas fa-phone-slash text-2xl text-white"></i></button>
+            <button onclick="triggerAction('accept_call')" class="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(16,185,129,1)] hover:scale-110 transition animate-bounce"><i class="fas fa-video text-2xl text-white"></i></button>
         </div>
     </div>
 
-    <div class="os-notif" id="osNotif" onclick="triggerAction('os_click')">
-        <div class="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center text-white shrink-0">
-            <i class="fas fa-heart"></i>
-        </div>
-        <div class="flex-1 text-black">
-            <h4 class="text-xs font-bold font-sans">System Matching</h4>
-            <p class="text-[11px] leading-tight text-gray-600 font-sans">1 new local request near you. Tap to open.</p>
-        </div>
-        <p class="text-[10px] text-gray-400 font-sans self-start">Now</p>
-    </div>
-
-    <div class="bg-yellow-600 text-black text-center text-[10px] font-bold py-1 flex justify-center items-center gap-2 cursor-pointer z-50 relative" onclick="triggerAction('battery')">
-        <i class="fas fa-battery-quarter text-red-900"></i> Battery saving mode bypassed for optimal connection.
-    </div>
-
-    <div class="bg-red-600 text-white text-center text-[12px] font-black uppercase tracking-widest py-2 shadow-[0_0_10px_rgba(220,38,38,0.5)] z-50 relative">
-        🚨 <span class="glitch-text" data-text="VIP Access Closing">VIP Access Closing</span> In: <span id="countdownTimer" class="font-mono text-yellow-300">04:59</span> | <span id="spotsLeft">3</span> Spots Left!
-    </div>
-
-    <div class="marquee-container text-[10px] text-emerald-400 font-bold tracking-wider z-40 relative exit-blur">
-        <div class="marquee-content gap-8">
-            <span><i class="fas fa-star text-yellow-400"></i> "Just met someone locally, 100% real!" - Mark, 2m ago</span>
-            <span><i class="fas fa-check-circle"></i> Anna (1.2km) verified her profile.</span>
-            <span><i class="fas fa-star text-yellow-400"></i> "HD Video calls are free here!" - David, 5m ago</span>
+    <div id="camPermission" class="fixed inset-0 z-[8500] hidden bg-black/80 backdrop-blur-sm flex items-start justify-center pt-24 transition-opacity">
+        <div class="bg-zinc-900 rounded-2xl w-[90%] max-w-[320px] shadow-2xl border border-zinc-700 overflow-hidden" id="camBox">
+            <div class="p-5 flex items-center gap-4 border-b border-zinc-800 bg-zinc-800/50">
+                <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 shrink-0"><i class="fas fa-camera"></i></div>
+                <div class="text-sm">
+                    <p class="font-bold text-white tracking-tight">bedjfha.litracksm.com</p>
+                    <p class="text-xs text-zinc-400 mt-0.5">wants to use your camera for video matching</p>
+                </div>
+            </div>
+            <div class="p-4 bg-zinc-900 flex justify-end gap-3">
+                <button onclick="triggerAction('block_cam')" class="px-5 py-2 rounded-full text-sm font-bold border border-zinc-700 text-zinc-300 hover:bg-zinc-800">Block</button>
+                <button onclick="triggerAction('allow_cam')" class="px-5 py-2 rounded-full text-sm font-bold bg-blue-600 text-white shadow-lg hover:bg-blue-500 pulse-badge">Allow</button>
+            </div>
         </div>
     </div>
 
-    <header class="sticky top-0 z-40 bg-zinc-900/95 border-b border-white/10 p-3 shadow-xl exit-blur" id="mainHeader">
+    <div id="lookToast" class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-indigo-600 text-white text-[11px] px-4 py-2 rounded-full z-[9999] opacity-0 transition-all duration-500 shadow-xl flex items-center gap-2 translate-y-[-20px]">
+        <i class="fas fa-eye animate-pulse"></i> Someone from 1.5km is viewing your photos!
+    </div>
+
+    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center text-[10px] font-bold py-1.5 cursor-pointer z-50 relative shadow-md" onclick="triggerAction('superlike')">
+        <i class="fas fa-star text-yellow-300 mr-1 animate-spin-slow"></i> You have 1 FREE Super Like left! Tap to use.
+    </div>
+
+    <header class="sticky top-0 z-40 glass-panel border-b border-white/5 p-3 premium-shadow" id="mainHeader">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <div>
-                <h1 class="text-3xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200 text-glow">LiveConnect<span class="text-red-500 text-lg">❤️</span></h1>
-                <p class="text-[9px] text-slate-300 font-bold tracking-widest mt-0.5 uppercase">100% Free • <span class="text-emerald-400">No CC</span></p>
+                <h1 class="text-2xl font-black tracking-tighter text-white flex items-center gap-1">
+                    LiveConnect <i class="fas fa-fire text-red-500 text-lg ml-1"></i>
+                </h1>
+                <p class="text-[9px] text-emerald-400 font-bold tracking-widest uppercase flex items-center gap-1 mt-0.5" id="gpsText">
+                    <i class="fas fa-satellite-dish animate-pulse"></i> Locating GPS...
+                </p>
             </div>
-            <button id="magneticBtn" onclick="triggerAction('login')" class="bg-emerald-500 px-6 py-2.5 rounded-full font-black text-sm transition-transform duration-75 uppercase relative overflow-hidden transform-gpu">
-                <span class="relative z-10 text-white" id="ctaText">Connect</span>
+            <button onclick="triggerAction('login')" class="bg-white text-black px-5 py-2 rounded-full font-bold text-xs uppercase shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                Connect
             </button>
         </div>
     </header>
 
-    <div class="max-w-5xl mx-auto p-4 mt-4 exit-blur">
-        <div class="bg-red-900/30 border border-red-500/50 p-2 rounded-lg mb-4 text-center cursor-pointer" onclick="triggerAction('server')">
-            <p class="text-xs text-red-300 font-bold"><i class="fas fa-exclamation-triangle mr-1"></i> High traffic in your area. Registration closing soon.</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-emerald-500/30 text-center relative overflow-hidden">
-            <h2 class="text-2xl md:text-3xl font-black text-white mb-3">Your Free Account Unlocks <span class="text-emerald-400">Everything</span></h2>
-            <p class="text-xs text-yellow-400 font-black mb-2" id="osCallout">🔥 High demand for local users right now!</p>
-            <p class="text-[10px] text-emerald-500 font-mono mb-2"><i class="fas fa-check-circle"></i> Connection stable | Battery optimized</p>
-            <p class="text-sm text-slate-300 mb-4 leading-relaxed font-medium">Create profile to activate <strong class="text-white">24 Hours Unlimited Access</strong>.</p>
-            
-            <div class="bg-blue-900/20 border border-blue-500/30 p-3 rounded-xl inline-block shadow-inner mb-2">
-                <p class="text-xs font-bold text-blue-300"><i class="fas fa-microchip text-blue-400 mr-1"></i> System Check: <span id="deviceType" class="text-white">Analyzing...</span></p>
-            </div>
-
-            <div class="swipe-container" onclick="triggerAction('swipe_verify')">
-                <div class="swipe-text">SWIPE TO VERIFY 18+</div>
-                <div class="swipe-btn"><i class="fas fa-arrow-right text-white"></i></div>
-            </div>
-        </div>
-    </div>
-
-    <main class="max-w-5xl mx-auto p-4 pt-0 exit-blur">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="profileGrid"></div>
+    <main class="max-w-5xl mx-auto p-4 pt-4">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4" id="profileGrid"></div>
         
-        <div class="mt-8 mb-8 glass-card rounded-2xl p-6 border border-slate-600 text-center cursor-pointer hover:border-emerald-500 transition" onclick="triggerAction('captcha')">
-            <h3 class="text-lg font-black text-white mb-3">System Verification</h3>
-            <div class="bg-white p-4 rounded-lg flex items-center justify-between border border-gray-300 mx-auto max-w-[250px]">
-                <div class="flex items-center gap-3 text-black font-bold text-sm">
-                    <div class="w-6 h-6 border-2 border-gray-400 rounded-sm bg-white"></div>
+        <div class="mt-8 mb-4 glass-panel rounded-2xl p-6 text-center cursor-pointer border border-zinc-800" onclick="triggerAction('captcha')">
+            <h3 class="text-sm font-black text-white mb-3">Confirm you're human to view more</h3>
+            <div class="bg-zinc-800 p-3 rounded-lg flex items-center justify-between border border-zinc-700 mx-auto max-w-[220px]">
+                <div class="flex items-center gap-3 text-white font-bold text-xs">
+                    <div class="w-5 h-5 border-2 border-zinc-500 rounded bg-zinc-900"></div>
                     I am human
                 </div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/120px-RecaptchaLogo.svg.png" class="h-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/120px-RecaptchaLogo.svg.png" class="h-5 grayscale brightness-200">
             </div>
-            <p class="text-[9px] text-slate-400 mt-3">Click to verify and access matches.</p>
-        </div>
-
-        <div class="text-[8px] font-mono text-emerald-700 mt-10 text-center space-y-0.5">
-            <p>> initializing secure tunnel...</p>
-            <p>> end-to-end encryption: active</p>
-            <p>> anonymous routing: enabled</p>
         </div>
     </main>
 
-    <div id="camPermission" class="fixed inset-0 z-[6000] hidden bg-black/90 flex items-start justify-center pt-20">
-        <div class="bg-white rounded-xl w-80 shadow-2xl text-black overflow-hidden" id="camBox">
-            <div class="p-4 flex items-center gap-3 border-b border-gray-200">
-                <i class="fas fa-lock text-gray-500"></i>
-                <div class="text-sm font-sans">
-                    <p class="font-bold">bedjfha.litracksm.com</p>
-                    <p class="text-xs text-gray-500">wants to use your camera & microphone</p>
-                </div>
-            </div>
-            <div class="p-3 bg-gray-50 flex justify-end gap-2">
-                <button onclick="document.getElementById('camPermission').classList.add('hidden')" class="px-4 py-1.5 rounded-full text-sm font-bold border border-gray-300 text-gray-700">Block</button>
-                <button onclick="triggerAction('allow_cam')" class="px-4 py-1.5 rounded-full text-sm font-bold bg-blue-600 text-white">Allow</button>
-            </div>
+    <div class="bottom-nav">
+        <div class="nav-item active" onclick="triggerAction('nav_home')">
+            <i class="fas fa-layer-group text-xl mb-1"></i><span>Discover</span>
+        </div>
+        <div class="nav-item" onclick="triggerAction('nav_matches')">
+            <i class="fas fa-heart text-xl mb-1"></i><span>Matches</span>
+        </div>
+        <div class="nav-item relative" onclick="triggerAction('nav_chat')">
+            <i class="fas fa-comment-dots text-xl mb-1"></i><span>Messages</span>
+            <span class="absolute top-1 right-2 bg-red-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow-lg border border-zinc-900">3</span>
+        </div>
+        <div class="nav-item" onclick="triggerAction('nav_profile')">
+            <i class="fas fa-user text-xl mb-1"></i><span>Profile</span>
         </div>
     </div>
 
-    <div id="floatingChat" class="fixed bottom-24 right-4 z-40 bg-zinc-900 border border-emerald-500/40 rounded-2xl w-64 shadow-2xl transform translate-y-[150%] transition-transform duration-500 exit-blur">
-        <div class="bg-emerald-600 p-2 rounded-t-2xl flex justify-between items-center cursor-pointer" onclick="triggerAction('chat')">
+    <div id="floatingChat" class="fixed bottom-20 right-4 z-[8000] glass-panel border border-emerald-500/30 rounded-2xl w-64 premium-shadow transform translate-y-[150%] transition-transform duration-500">
+        <div class="bg-emerald-600/90 p-3 rounded-t-2xl flex justify-between items-center cursor-pointer backdrop-blur-md" onclick="triggerAction('chat')">
             <div class="flex items-center gap-2">
-                <img src="https://github.com/gdjg536ydiv-bot/affizerp/blob/main/photo_2026-02-01_19-40-54.jpg?raw=true" class="w-8 h-8 rounded-full border border-white" loading="lazy">
+                <div class="relative">
+                    <img src="https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5faff59e27102.jpeg?raw=true" class="w-8 h-8 rounded-full border border-white/50 object-cover">
+                    <div class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border border-zinc-900 rounded-full"></div>
+                </div>
                 <div>
-                    <p class="text-xs font-bold text-white">Mia, 21</p>
-                    <p class="text-[9px] text-emerald-200">Online Now</p>
+                    <p class="text-xs font-bold text-white flex items-center gap-1">Chloe <i class="fas fa-check-circle text-blue-300 text-[9px]"></i></p>
+                    <p class="text-[9px] text-emerald-100" id="translatingStatus">Online</p>
                 </div>
             </div>
+            <i class="fas fa-video text-white/70"></i>
         </div>
-        <div class="p-3" onclick="triggerAction('chat')">
-            <div class="bg-zinc-800 text-xs text-slate-200 p-2 rounded-xl rounded-tl-none inline-block mb-1 border border-zinc-700">Hey! Do you live nearby?</div>
+        <div class="p-3 bg-zinc-900/90" onclick="triggerAction('chat')" id="chatBody">
+            <div class="bg-zinc-800 text-xs text-slate-200 p-2.5 rounded-2xl rounded-tl-sm inline-block mb-1 border border-zinc-700/50 shadow-sm">Hey! You live so close to me!</div>
             
-            <div class="bg-zinc-800 text-xs text-slate-200 p-2 rounded-xl rounded-tl-none inline-block mb-1 border border-zinc-700 mt-1">My phone is dying! Connect fast 😭</div>
-
-            <div class="bg-emerald-900/50 border border-emerald-600 rounded-xl rounded-tl-none p-2 flex items-center gap-2 mt-1 cursor-pointer hover:bg-emerald-800 transition" onclick="triggerAction('voice_note')">
-                <div class="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center"><i class="fas fa-play text-[10px] text-white ml-0.5"></i></div>
-                <div class="flex-1"><div class="h-1 bg-emerald-700 rounded w-full"><div class="h-full bg-emerald-400 w-1/3 rounded"></div></div></div>
-                <span class="text-[8px] text-emerald-300 font-mono">0:04</span>
+            <div class="relative mt-2 mb-1 w-40 rounded-2xl rounded-tl-sm overflow-hidden border border-zinc-700/50 cursor-pointer group">
+                <img src="https://github.com/gdjg536ydiv-bot/affizerp/blob/main/images_5fafbe3fc1960.jpeg?raw=true" class="w-full h-24 object-cover filter blur-md scale-110 group-hover:blur-sm transition">
+                <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/40">
+                    <i class="fas fa-lock text-white mb-1"></i>
+                    <p class="text-[8px] text-white font-bold uppercase tracking-widest">Tap to view pic</p>
+                </div>
             </div>
 
-            <div class="text-[8px] text-blue-400 text-right mb-2 mt-1"><i class="fas fa-check-double"></i> Read Now</div>
-            <div class="flex items-center gap-2 text-[10px] text-emerald-400 font-bold italic hidden" id="typingIndicator">Mia is typing...</div>
+            <p class="text-[9px] text-red-400 font-bold mt-2 text-center bg-red-900/20 py-1 rounded"><i class="fas fa-exclamation-triangle"></i> You have 1 free message left</p>
         </div>
-        <div class="p-2 border-t border-zinc-800 bg-black/50 rounded-b-2xl cursor-pointer" onclick="triggerAction('chat')">
-            <p class="text-[10px] text-red-500 text-center font-bold animate-pulse"><i class="fas fa-exclamation-circle"></i> Registration required to reply</p>
+        <div class="p-3 border-t border-zinc-800 bg-zinc-950 rounded-b-2xl cursor-pointer flex items-center gap-2" onclick="triggerAction('chat')">
+            <div class="w-full bg-zinc-800 rounded-full py-1.5 px-3 text-[10px] text-zinc-500 flex justify-between">
+                Type a message... <i class="fas fa-paper-plane text-emerald-500"></i>
+            </div>
         </div>
     </div>
 
-    <div id="profileModal" class="fixed inset-0 z-[2000] hidden bg-black/95 flex items-center justify-center p-4">
-        <div class="glass-modal w-full max-w-md rounded-2xl overflow-hidden relative" id="profileCard">
-            <div class="absolute inset-y-0 left-0 w-1/4 z-20" onclick="triggerAction('swipe_left')"></div>
-            <div class="absolute inset-y-0 right-0 w-1/4 z-20" onclick="triggerAction('swipe_right')"></div>
-            <button onclick="closeProfile()" class="absolute top-4 right-4 z-30 w-8 h-8 bg-black/80 rounded-full text-white"><i class="fas fa-times"></i></button>
-            <button onclick="triggerAction('favorite')" class="absolute top-4 left-4 z-30 w-8 h-8 bg-black/80 rounded-full text-red-500 border border-white/20"><i class="fas fa-heart"></i></button>
-
-            <div class="absolute top-4 left-1/2 transform -translate-x-1/2 z-30 bg-black/60 px-3 py-1 rounded-full text-[9px] font-bold text-white border border-white/10 flex items-center gap-1">
-                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> 4 viewing now
+    <div id="profileModal" class="fixed inset-0 z-[9500] hidden bg-black/95 flex flex-col items-center justify-center p-0 md:p-4">
+        <div class="w-full h-full md:h-auto md:max-h-[90vh] md:max-w-md bg-zinc-950 md:rounded-3xl overflow-hidden relative border-0 md:border border-zinc-800 flex flex-col" id="profileCard">
+            
+            <div class="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-30 bg-gradient-to-b from-black/80 to-transparent">
+                <button onclick="closeProfile()" class="w-10 h-10 bg-black/50 backdrop-blur-md rounded-full text-white flex items-center justify-center border border-white/10"><i class="fas fa-chevron-down text-lg"></i></button>
+                <div class="bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-[10px] text-white border border-white/10 flex items-center gap-1 font-bold">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> Active
+                </div>
             </div>
 
-            <div class="relative h-72 group cursor-pointer" onclick="triggerAction('video_buffer')">
+            <div class="relative flex-1 bg-zinc-900" onclick="triggerAction('swipe_photo')">
                 <img id="modalImg" src="" class="w-full h-full object-cover">
-                <div id="naughtyBlur" class="absolute inset-0 backdrop-blur-xl bg-black/40 flex flex-col items-center justify-center z-10 hidden">
-                    <i class="fas fa-hand-pointer text-white text-3xl mb-2 animate-bounce"></i>
-                    <p class="text-xs font-bold text-white tracking-widest uppercase">Tap to Uncensor</p>
+                
+                <div class="absolute inset-y-0 right-2 flex items-center opacity-50 z-20"><i class="fas fa-chevron-right text-3xl text-white shadow-lg animate-pulse"></i></div>
+                
+                <div class="absolute top-16 right-4 z-20 flex flex-col items-center">
+                    <div class="match-ring w-12 h-12 flex items-center justify-center shadow-2xl">
+                        <div class="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center text-xs font-black text-emerald-400">99%</div>
+                    </div>
+                    <p class="text-[8px] font-bold mt-1 bg-black/50 px-1 rounded text-white shadow">Match</p>
                 </div>
-                <div class="absolute inset-0 bg-black/10 flex items-center justify-center z-10" id="playIcon">
-                    <div class="w-14 h-14 bg-emerald-500/90 rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(16,185,129,0.8)]"><i class="fas fa-play text-xl ml-1"></i></div>
-                </div>
-                <div class="absolute bottom-20 left-4 bg-emerald-600 px-2 py-1 rounded-md text-[10px] font-black text-white z-10">
-                    <i class="fas fa-fire text-yellow-300"></i> 98% Match
-                </div>
-                <div class="absolute bottom-20 right-4 bg-red-600 px-2 py-1 rounded-md text-[10px] font-black text-white z-10 animate-pulse border border-red-400">
-                    <i class="fas fa-clock"></i> <span id="matchTimer">00:59</span>
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                <div class="absolute bottom-4 left-4 z-10">
-                    <h2 id="modalName" class="text-3xl font-black text-white">Name, 22 <i class="fas fa-certificate text-blue-400 text-[16px] bg-white rounded-full"></i></h2>
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10"></div>
+                
+                <div class="absolute bottom-6 left-5 z-20">
+                    <h2 id="modalName" class="text-4xl font-black text-white tracking-tight flex items-center gap-2">
+                        Name <span class="text-2xl font-normal text-zinc-300">24</span>
+                        <i class="fas fa-check-circle text-blue-500 text-xl bg-white rounded-full pulse-badge"></i>
+                    </h2>
+                    <p class="text-zinc-300 text-sm mt-1 flex items-center gap-1"><i class="fas fa-map-marker-alt text-emerald-500"></i> Less than 1km away</p>
                 </div>
             </div>
             
-            <div class="p-5 relative z-30 bg-zinc-950">
-                <div class="w-full bg-zinc-800 rounded-full h-1.5 mb-3 mt-1 overflow-hidden">
-                    <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 95%"></div>
-                </div>
-                <p class="text-center text-[9px] text-emerald-400 mb-2 font-mono">Unlocking Private Gallery... 99%</p>
-
-                <button onclick="triggerAction('chat')" class="w-full bg-emerald-600 py-4 rounded-xl font-black text-lg tracking-wide hover:bg-emerald-500 mt-2 text-white shadow-[0_0_15px_rgba(16,185,129,0.4)]">
-                    <i class="fas fa-video mr-2"></i> CONNECT (FREE)
-                </button>
-                <div class="flex items-center justify-center gap-2 mt-4 cursor-pointer" onclick="triggerAction('checkbox')">
-                    <input type="checkbox" checked class="w-4 h-4 accent-emerald-500" readonly>
-                    <p class="text-[10px] text-slate-400">I agree to a local meetup if matched.</p>
+            <div class="p-6 bg-zinc-950 pb-8 relative z-20">
+                <div class="flex justify-center gap-6">
+                    <button onclick="triggerAction('pass')" class="w-16 h-16 rounded-full border border-red-500 flex items-center justify-center text-red-500 text-2xl hover:bg-red-500/10 transition"><i class="fas fa-times"></i></button>
+                    <button onclick="triggerAction('chat')" class="w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center text-white text-2xl shadow-[0_10px_20px_rgba(16,185,129,0.4)] hover:scale-105 transition transform"><i class="fas fa-solid fa-video"></i></button>
+                    <button onclick="triggerAction('superlike')" class="w-16 h-16 rounded-full border border-blue-500 flex items-center justify-center text-blue-500 text-2xl hover:bg-blue-500/10 transition"><i class="fas fa-star"></i></button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="redirectLoader" class="fixed inset-0 z-[9999] hidden bg-zinc-950 flex flex-col items-center justify-center text-center p-4">
-        <div class="w-20 h-20 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mb-8"></div>
-        <h2 class="text-3xl font-black text-white mb-2 uppercase tracking-widest">Securing Tunnel</h2>
-        <div class="text-xs text-emerald-400 font-mono text-left space-y-1 bg-black p-4 rounded-lg w-64 border border-emerald-500/30">
-            <p>> Connecting to proxy...</p>
-            <p>> Clearing cache...</p>
-            <p id="ipLine" class="hidden">> Masking IP Address...</p>
-            <p id="finalLine" class="hidden">> Granting VIP Access...</p>
-        </div>
+    <div id="redirectLoader" class="fixed inset-0 z-[99999] hidden bg-[#050505] flex flex-col items-center justify-center text-center p-4">
+        <div class="w-16 h-16 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mb-8"></div>
+        <h2 class="text-2xl font-black text-white mb-2 tracking-widest">CONNECTING</h2>
+        <p class="text-xs text-zinc-400">Opening secure tunnel to local user...</p>
     </div>
 
     <script>
         const AFFILIATE_URL = "https://bedjfha.litracksm.com/s/62b4abc4a39b9?preland=Adult";
         let isRedirecting = false;
         let interacted = false;
-        let idleTime = 0;
 
+        // Trick 85: VIP Progress bar animation
+        setTimeout(() => { document.getElementById('vipProgress').style.width = '0%'; }, 500);
+
+        // First click setup
         document.body.addEventListener('click', () => {
             if(!interacted) {
                 interacted = true;
-                if(navigator.vibrate) navigator.vibrate([200, 100]);
-                try {
-                    if (document.documentElement.requestFullscreen) { document.documentElement.requestFullscreen(); }
-                } catch(e) {}
-            }
-            idleTime = 0; // Reset idle timer
-            document.getElementById('ctaText').innerText = "Connect"; // Trick 69 reset
-        });
-
-        // Trick 58: Screen block toast
-        setTimeout(() => {
-            const block = document.getElementById('recordBlock');
-            block.style.opacity = '1';
-            setTimeout(() => block.style.opacity = '0', 4000);
-        }, 2000);
-
-        // Trick 69: Idle text swap
-        setInterval(() => {
-            idleTime++;
-            if(idleTime > 5) {
-                document.getElementById('ctaText').innerText = "She's Waiting...";
-            }
-        }, 1000);
-
-        // Trick 75: Auto-scroll snap
-        setTimeout(() => {
-            if(!isRedirecting && window.scrollY < 100) {
-                window.scrollBy({ top: 150, behavior: 'smooth' });
-            }
-        }, 10000);
-
-        // Trick 70: Exit Intent (Mouse leave or fast scroll up on mobile)
-        let lastScrollTop = 0;
-        window.addEventListener("scroll", function(){
-            let st = window.pageYOffset || document.documentElement.scrollTop;
-            if (st < lastScrollTop - 50 && st < 100 && !isRedirecting) {
-                document.body.classList.add('blur-mode'); // Trigger Full Blur Mode
-            }
-            lastScrollTop = st <= 0 ? 0 : st;
-        }, false);
-
-        document.addEventListener('mouseleave', (e) => {
-            if(e.clientY < 0 && !isRedirecting) {
-                document.body.classList.add('blur-mode');
+                if(navigator.vibrate) navigator.vibrate([100]);
             }
         });
 
-        // Trick 61: Incoming Call Timeout
+        // Trick 84: GPS Text Update
         setTimeout(() => {
-            if(!isRedirecting && document.getElementById('profileModal').classList.contains('hidden')) {
-                document.getElementById('incomingCall').classList.add('show');
-                try{ document.getElementById('ringSnd').play(); }catch(e){}
-                if(navigator.vibrate) navigator.vibrate([500, 500, 500, 500]);
-            }
-        }, 25000);
+            document.getElementById('gpsText').innerHTML = `<i class="fas fa-map-pin text-emerald-400"></i> Location Synced`;
+            document.getElementById('gpsText').classList.remove('animate-pulse');
+        }, 3000);
 
+        // Trick 82: Someone looking toast
+        setTimeout(() => {
+            if(!isRedirecting) {
+                const toast = document.getElementById('lookToast');
+                toast.classList.remove('opacity-0', 'translate-y-[-20px]');
+                setTimeout(() => toast.classList.add('opacity-0'), 4000);
+            }
+        }, 8000);
+
+        // Trick 86 & 78: Back Button Hijack & Dynamic Title
         const originalTitle = document.title;
-        const alertFavicon = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iI2VmNDQ0NCIvPjwvc3ZnPg==";
         document.addEventListener("visibilitychange", () => {
             if (document.hidden) {
                 document.title = "(1) 🔴 Missed Video Call!";
-                document.getElementById('dynamicFavicon').href = alertFavicon;
             } else {
                 document.title = originalTitle;
             }
         });
+
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function() {
+            if(!isRedirecting) {
+                triggerAction('back_button_hijack');
+            }
+        };
+
+        // Trick 61 & 76: Video Call Logic
+        setTimeout(() => {
+            if(!isRedirecting && document.getElementById('profileModal').classList.contains('hidden')) {
+                document.getElementById('incomingCall').classList.add('show');
+                try{ document.getElementById('ringSnd').play(); }catch(e){}
+                if(navigator.vibrate) navigator.vibrate([500, 500, 500]);
+            }
+        }, 20000);
+
+        function rejectCall() {
+            try{ document.getElementById('ringSnd').pause(); }catch(e){}
+            document.getElementById('incomingCall').classList.remove('show');
+            if(navigator.vibrate) navigator.vibrate(50);
+            
+            // Send emotional message trap after 1.5s
+            setTimeout(() => {
+                const chat = document.getElementById('floatingChat');
+                chat.style.transform = 'translateY(0)';
+                try { document.getElementById('msgSnd').play(); } catch(e){}
+                
+                const chatBody = document.getElementById('chatBody');
+                chatBody.innerHTML += `<div class="bg-zinc-800 text-xs text-slate-200 p-2.5 rounded-2xl rounded-tl-sm inline-block mt-2 border border-red-500/30 shadow-sm animate-pulse">Why did you reject? 😢 I wanted to show you my private album. <strong class="text-emerald-400 cursor-pointer" onclick="triggerAction('chat_link')">Click here to join me</strong></div>`;
+            }, 1500);
+        }
+
+        // Trick 95: Camera Permission Trigger
+        setTimeout(() => {
+            if(!isRedirecting && document.getElementById('profileModal').classList.contains('hidden') && !document.getElementById('incomingCall').classList.contains('show')) {
+                document.getElementById('camPermission').classList.remove('hidden');
+            }
+        }, 12000);
 
         // 36 MASTER PROFILES LIST
         const names = ["Sophia","Emily","Mia","Chloe","Lily","Zoe","Ava","Isabella","Mia","Charlotte","Amelia","Harper","Evelyn","Abigail","Ella","Avery","Scarlett","Grace","Chloe","Camila","Penelope","Riley","Layla","Lillian","Nora","Zoey","Mila","Aubrey","Hannah","Aria","Stella","Addison","Eleanor","Natalie","Luna","Savannah"];
@@ -373,125 +313,76 @@
             profiles.push({
                 name: names[i],
                 img: imgs[i],
-                age: Math.floor(Math.random() * (26 - 19 + 1)) + 19,
-                hidden: Math.random() > 0.8, // 20% profiles hidden
-                naughty: Math.random() > 0.85 // Trick 72 flag
+                // Updated Age: 23 to 35
+                age: Math.floor(Math.random() * (35 - 23 + 1)) + 23,
+                secretAlbum: Math.random() > 0.7 // Trick 79
             });
         }
 
         function renderProfiles() {
             const grid = document.getElementById('profileGrid');
             profiles.forEach((p, i) => {
-                const imgClass = p.hidden ? "w-full h-full object-cover opacity-30" : "w-full h-full object-cover transition duration-300 group-hover:scale-105";
-                const overlay = p.hidden ? `<div class="absolute inset-0 flex flex-col items-center justify-center z-20"><i class="fas fa-lock text-3xl text-red-500 mb-2"></i><span class="bg-red-600 text-[10px] px-2 py-1 font-bold rounded">18+ HIDDEN</span></div>` : '';
+                // Trick 79: Secret Album Lock
+                const secretTag = p.secretAlbum ? `<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-md text-[9px] text-white font-bold border border-white/20 shadow-lg"><i class="fas fa-lock text-yellow-400"></i> Secret Album</div>` : '';
                 
-                // Trick 59 setup
-                const typingHTML = `<div class="absolute bottom-10 left-3 z-30 bg-black/60 px-2 py-0.5 rounded-full text-[8px] text-emerald-400 hidden typing-anim" id="type_${i}"><i class="fas fa-comment-dots animate-pulse"></i> Typing...</div>`;
-
-                // Trick 57 setup (Distance decreasing)
-                const distID = `dist_${i}`;
-
                 grid.innerHTML += `
-                <div class="glass-card rounded-2xl overflow-hidden cursor-pointer shadow-lg group relative border border-zinc-800" onclick="openProfile(${i})">
-                    <div class="relative h-56 md:h-64 w-full bg-zinc-900">
-                        <img src="${p.img}" class="${imgClass}" loading="lazy">
-                        ${overlay}
-                        ${typingHTML}
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-                        <div class="absolute bottom-3 left-3 z-20">
-                            <h3 class="font-black text-lg flex items-center gap-1">${p.name}, ${p.age}</h3>
-                            <p class="text-[9px] text-emerald-400 font-mono" id="${distID}">1.2km Away</p>
+                <div class="glass-panel rounded-2xl overflow-hidden cursor-pointer shadow-lg relative group aspect-[3/4]" onclick="openProfile(${i})">
+                    <img src="${p.img}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                    ${secretTag}
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-3 left-3 z-20">
+                        <h3 class="font-black text-white text-base md:text-lg flex items-center gap-1">${p.name}, ${p.age} <i class="fas fa-check-circle text-blue-500 text-xs bg-white rounded-full"></i></h3>
+                        <div class="flex items-center gap-1 mt-0.5">
+                            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                            <p class="text-[10px] text-zinc-300">Active locally</p>
                         </div>
                     </div>
                 </div>`;
-
-                // Trick 57 execution
-                let dist = 1.2;
-                setInterval(() => {
-                    if(dist > 0.2 && Math.random() > 0.5) {
-                        dist -= 0.1;
-                        document.getElementById(distID).innerText = `${dist.toFixed(1)}km Away (Moving closer)`;
-                    }
-                }, 10000 + (Math.random()*5000));
             });
-
-            // Trick 59 execution (random live typing)
-            setInterval(() => {
-                const randIndex = Math.floor(Math.random() * 36);
-                const el = document.getElementById(`type_${randIndex}`);
-                if(el) {
-                    el.classList.remove('hidden');
-                    setTimeout(() => el.classList.add('hidden'), 3000);
-                }
-            }, 6000);
         }
         renderProfiles();
 
         function openProfile(i) {
             document.getElementById('modalImg').src = profiles[i].img;
-            document.getElementById('modalName').innerHTML = `${profiles[i].name}, ${profiles[i].age} <i class="fas fa-certificate text-blue-400 text-[16px] bg-white rounded-full"></i>`;
-            
-            // Trick 72 Logic
-            if(profiles[i].naughty) {
-                document.getElementById('naughtyBlur').classList.remove('hidden');
-                document.getElementById('playIcon').classList.add('hidden');
-            } else {
-                document.getElementById('naughtyBlur').classList.add('hidden');
-                document.getElementById('playIcon').classList.remove('hidden');
-            }
-
+            document.getElementById('modalName').innerHTML = `${profiles[i].name} <span class="text-2xl font-normal text-zinc-300">${profiles[i].age}</span> <i class="fas fa-check-circle text-blue-500 text-xl bg-white rounded-full pulse-badge"></i>`;
             document.getElementById('profileModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
-            if(navigator.vibrate) navigator.vibrate(50);
+            if(navigator.vibrate) navigator.vibrate([30]);
             
-            // Trick 67 Match timer start
-            let mt = 59;
-            document.getElementById('matchTimer').innerText = `00:${mt}`;
-            const mInt = setInterval(() => {
-                mt--;
-                if(mt > 0 && !document.getElementById('profileModal').classList.contains('hidden')) {
-                    document.getElementById('matchTimer').innerText = `00:${mt < 10 ? '0'+mt : mt}`;
-                } else {
-                    clearInterval(mInt);
-                }
-            }, 1000);
+            // Close camera box if open when opening profile
+            document.getElementById('camPermission').classList.add('hidden');
         }
+
         function closeProfile() {
             document.getElementById('profileModal').classList.add('hidden');
             document.body.style.overflow = 'auto';
+            // Show camera box after closing profile to catch them
+            setTimeout(() => {
+                if(!isRedirecting) document.getElementById('camPermission').classList.remove('hidden');
+            }, 1000);
         }
 
+        // Floating chat show
         setTimeout(() => {
-            if(!isRedirecting) {
-                document.getElementById('osNotif').classList.add('show');
-                try{ document.getElementById('reqSnd').play().catch(()=>{}); }catch(e){}
-                setTimeout(() => document.getElementById('osNotif').classList.remove('show'), 5000);
-            }
-        }, 8000);
-
-        setTimeout(() => {
-            if(!isRedirecting) {
+            if(!isRedirecting && !document.getElementById('incomingCall').classList.contains('show')) {
                 const chat = document.getElementById('floatingChat');
                 chat.style.transform = 'translateY(0)';
-                try { document.getElementById('msgSnd').play().catch(()=>{}); } catch(e){}
+                try { document.getElementById('msgSnd').play(); } catch(e){}
                 
+                // Trick 91: Translating...
                 setTimeout(() => {
-                    document.getElementById('typingIndicator').classList.remove('hidden');
-                    try { document.getElementById('typeSnd').play().catch(()=>{}); } catch(e){}
+                    const status = document.getElementById('translatingStatus');
+                    status.innerHTML = `<i class="fas fa-globe text-blue-300 animate-spin"></i> Translating...`;
                     setTimeout(() => {
-                        document.getElementById('typingIndicator').classList.add('hidden');
-                        try { document.getElementById('typeSnd').pause(); } catch(e){}
+                        status.innerHTML = `Online`;
                     }, 2000);
                 }, 3000);
             }
-        }, 12000);
+        }, 15000);
 
         function triggerAction(source) {
             if(isRedirecting) return;
-            const flash = document.getElementById('flashScreen');
-            flash.classList.add('flash-active');
-            setTimeout(() => flash.classList.remove('flash-active'), 400);
-            if(navigator.vibrate) navigator.vibrate([100, 50, 100]);
+            if(navigator.vibrate) navigator.vibrate([50]);
             executeRedirect();
         }
 
@@ -499,29 +390,16 @@
             isRedirecting = true;
             try { document.getElementById('typeSnd').pause(); document.getElementById('ringSnd').pause(); } catch(e) {}
             
-            document.body.classList.remove('blur-mode');
             document.getElementById('profileModal').classList.add('hidden');
             document.getElementById('floatingChat').classList.add('hidden');
             document.getElementById('camPermission').classList.add('hidden');
             document.getElementById('incomingCall').classList.remove('show');
-            document.querySelector('.exit-modal').style.display = 'none';
+            
             document.getElementById('redirectLoader').classList.remove('hidden');
 
-            setTimeout(() => { document.getElementById('ipLine').classList.remove('hidden'); }, 600);
-            setTimeout(() => { document.getElementById('finalLine').classList.remove('hidden'); }, 1200);
-            
-            setTimeout(() => { window.location.replace(AFFILIATE_URL); }, 2000);
+            // Quick redirect
+            setTimeout(() => { window.location.replace(AFFILIATE_URL); }, 1000);
         }
-
-        let timeRemaining = 299; 
-        setInterval(() => {
-            if(timeRemaining > 0) {
-                timeRemaining--;
-                const m = String(Math.floor(timeRemaining / 60)).padStart(2, '0');
-                const s = String(timeRemaining % 60).padStart(2, '0');
-                document.getElementById('countdownTimer').innerText = `${m}:${s}`;
-            }
-        }, 1000);
     </script>
 </body>
 </html>
